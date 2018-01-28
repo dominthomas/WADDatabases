@@ -12,49 +12,49 @@
   <link rel="stylesheet" href="bootstrap-datepicker-master/dist/css/bootstrap-datepicker3.css">
 
   <style>
-  body {
-    background: url('images/planesky.jpeg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+    body {
+      background: url('images/planesky.jpeg') no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      background-size: cover;
+      -o-background-size: cover;
+    }
+  .navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+    background-color: #18181C;
+    color: #FFF;
+    padding: 1% 0;
+    font-size: 1.2em;
+    border: 0;
   }
-.navbar {
-  margin-bottom: 0;
-  border-radius: 0;
-  background-color: #18181C;
-  color: #FFF;
-  padding: 1% 0;
-  font-size: 1.2em;
-  border: 0;
-}
-.navbar-inverse .navbar-brand{
-  position: relative;
-  float: left;
-  min-height: 55px;
-  padding: 10 15px 5px;
-  color: #E7E5DF;
-  font-size: 1.4em;
-}
-.navbar-inverse .navbar-nav .active a,
-.navbar-inverse .navbar-nav .active a:focus,
-.navbar-inverse .navbar-nav .active a:hover {
-  color: #FFF;
-  background-color: #303038;
-  text-align: right;
-}
-.navbar-inverse .navbar-nav li a {
-  color: #B5B2AD;
-}
-.navbar-inverse .open .dropdown .dropdown-menu>li>a,.navbar-inverse .open .dropdown .dropdown-menu{
-  	background-color: #FFFDF9;
-    color:#44BBA4;
-}
-.container{
-position:fixed;
-top: 40%;
-left: 50%;
-transform: translate(-50%, -50%);
+  .navbar-inverse .navbar-brand{
+    position: relative;
+    float: left;
+    min-height: 55px;
+    padding: 10 15px 5px;
+    color: #E7E5DF;
+    font-size: 1.4em;
+  }
+  .navbar-inverse .navbar-nav .active a,
+  .navbar-inverse .navbar-nav .active a:focus,
+  .navbar-inverse .navbar-nav .active a:hover {
+    color: #FFF;
+    background-color: #303038;
+    text-align: right;
+  }
+  .navbar-inverse .navbar-nav li a {
+    color: #B5B2AD;
+  }
+  .navbar-inverse .open .dropdown .dropdown-menu>li>a,.navbar-inverse .open .dropdown .dropdown-menu{
+    	background-color: #FFFDF9;
+      color:#44BBA4;
+  }
+  .container{
+  position:fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
 }
 .panel-body .btn-group .btn.btn-default.dropdown-toggle {
@@ -63,12 +63,6 @@ transform: translate(-50%, -50%);
     border-radius: 0px;
     margin:10px;
 }
-
-
-
-
-
-
   </style>
 </head>
 <body>
@@ -119,40 +113,17 @@ transform: translate(-50%, -50%);
         <li><a href="#">My Trips</a></li>
       </ul>
       </div>
-      <div class="panel-body">
-        <div class="btn-group">
 
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
-        data-toggle="dropdown">From
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#">London Stanstead Airport (<strong>STN</strong>)</a></li>
-    </ul>
-  </div>
-
-<div class="btn-group">
-    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2"
-     data-toggle="dropdown">To
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-  <li><a href="#">Manchester (<strong>MAN</strong>)</a></li>
-    <li><a href="#">Glasgow (<strong>GLA</strong>)</a></li>
-      <li><a href="#">Dublin (<strong>DUB</strong>)</a></li>
-        <li><a href="#">Paris (<strong>CDG</strong>)</a></li>
-          <li><a href="#">Madrid (<strong>MAD</strong>)</a></li>
-            <li><a href="#">Brussels (<strong>BRU</strong>)</a></li>
-</ul>
-</div>
 <div class="bootstrap-iso">
  <div class="container-fluid">
   <div class="row">
    <div class="col-md-6 col-sm-6 col-xs-12">
 
     <!-- Form begins -->
-    <form method="post">
+    <form action="information.php" method="post">
       <div class="form-group"> <!-- Date input -->
-        <label class="control-label" for="date">Date</label>
-        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+        <label class="control-label" for="date"><br/>Flight Code</label>
+        <input class="form-control" id="date" name="code" placeholder="ABC123" type="text"/>
       </div>
       <div class="form-group"> <!-- Submit button -->
         <button class="btn btn-primary " name="submit" type="submit">Submit</button>
@@ -169,6 +140,5 @@ transform: translate(-50%, -50%);
   </div>
 </div>
   </div>
-
-</body>
+  </body>
 </html>
