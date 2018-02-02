@@ -1,8 +1,12 @@
 <?php
-  class Customer{
-    private $id;
-    private $givenName;
-    private $surname;
+  class Flight{
+    private $Flight_No;
+    private $Aircraft_ID;
+    private $Departure_IATA_Code;
+    private $Arrival_IATA_Code;
+    private $Arrival_Date;
+    private $Cost;
+    private $Seats_Booked;
 
     function __construct(){
     }
