@@ -1,8 +1,8 @@
 <?php
-  class Customer{
-    private $id;
-    private $givenName;
-    private $surname;
+  class Destination{
+    private $IATA_Code;
+    private $Airport_Location;
+    private $Airport_Information;
 
     function __construct(){
     }
