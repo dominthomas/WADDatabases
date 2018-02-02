@@ -1,6 +1,6 @@
 <?php
-  class Customer{
-    private $id;
+  class AircraftModel{
+    private $Model_ID;
     private $givenName;
     private $surname;
 
