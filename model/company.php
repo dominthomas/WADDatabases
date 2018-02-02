@@ -1,8 +1,7 @@
 <?php
-  class Customer{
+  class Company{
     private $id;
-    private $givenName;
-    private $surname;
+    private $name;
 
     function __construct(){
     }
