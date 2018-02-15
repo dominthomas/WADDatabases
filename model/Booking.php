@@ -1,13 +1,13 @@
 <?php
   class Booking{
-    private $id;
+    private $Booking_ID;
     private $Booking_Date;
-    private $Company_ID;
-    private $Flight_No;
+    private $Flight_Number;
+    private $Seats_Booked;
     private $Seats_Booked;
     private $Customer_ID;
     private $Cost;
-    private $Aircraft_ID;
+    private $Total_Cost;
 
 
     function __construct(){
