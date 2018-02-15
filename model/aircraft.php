@@ -1,9 +1,8 @@
 <?php
   class Aircraft{
-    private $id;
-    private $Company_ID;
-    private $Model_ID;
-    private $Seats_No;
+    private $Aircraft_ID;
+    private $Aircraft_Model_ID;
+    private $Seats;
 
     function __construct(){
     }
