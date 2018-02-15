@@ -1,7 +1,7 @@
 <?php
   class Company{
-    private $id;
-    private $name;
+    private $Company_ID;
+    private $Company_Name;
 
     function __construct(){
     }
