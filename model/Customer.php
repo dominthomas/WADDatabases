@@ -1,8 +1,12 @@
 <?php
   class Customer{
-    private $id;
-    private $givenName;
-    private $surname;
+    private $Customer_ID;
+    private $First_Name;
+    private $Last_Name;
+    private $Address;
+    private $Email_Address;
+    private $Telephone_Number;
+    private $Mobile_Number;
 
     function __construct(){
     }
