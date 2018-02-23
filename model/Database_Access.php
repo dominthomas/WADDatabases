@@ -29,13 +29,6 @@
     return $results;
   }
 
-  function getAllCompanies(){
-    global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM Fly_Guys");
-    $statement->execute();
-    $results = $statement->fetchAll(PDO::FETCH_CLASS,"Company");
-    return $results;
-  }
   function getAllDestinations(){
     global $pdo;
     $statement = $pdo->prepare("SELECT * FROM Destinations");
