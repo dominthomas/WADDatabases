@@ -1,5 +1,5 @@
 <?php
-  $pdo = new PDO("mysql:host=kunet.kingston.ac.uk;dbname=db_k1507061",
+  $pdo = new PDO("mysql:host=kunet.kingston.ac.uk;dbname=dbAk1507061",
   "k1507061",
   "Ouzen~1",
   [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
