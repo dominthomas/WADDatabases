@@ -10,12 +10,11 @@
           <th>First Names</th>
           <th>Surname</th>
         </thead>
-        <?php foreach $customerList as $customer?>
+        <?php foreach ($customerList as $customer): ?>
           <tr>
             <td><?= $customer->$First_Name ?></td>
-            <td><?= $customer->$Last_Name ?></td>
           </tr>
-        <?php endforeach?>
+        <?php endforeach ?>
       </table>
     </body>
   </html>
