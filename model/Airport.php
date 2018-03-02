@@ -1,5 +1,5 @@
 <?php
-  class Destination{
+  class Airport{
     private $IATA_Code;
     private $Airport_Location;
     private $Airport_Information;

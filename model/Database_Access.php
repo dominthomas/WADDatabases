@@ -29,11 +29,11 @@
     return $results;
   }
 
-  function getAllDestinations(){
+  function getAllAirports(){
     global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM Destinations");
+    $statement = $pdo->prepare("SELECT * FROM Airports");
     $statement->execute();
-    $results = $statement->fetchAll(PDO::FETCH_CLASS,"Destination");
+    $results = $statement->fetchAll(PDO::FETCH_CLASS,"Airport");
     return $results;
   }
 

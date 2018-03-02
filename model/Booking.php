@@ -4,7 +4,6 @@
     private $Booking_Date;
     private $Flight_Number;
     private $Seats_Booked;
-    private $Seats_Booked;
     private $Customer_ID;
     private $Cost;
     private $Total_Cost;

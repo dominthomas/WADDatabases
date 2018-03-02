@@ -7,6 +7,7 @@
     private $Email_Address;
     private $Telephone_Number;
     private $Mobile_Number;
+    private $Password;
 
     function __construct(){
     }
