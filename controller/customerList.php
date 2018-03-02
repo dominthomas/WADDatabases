@@ -1,6 +1,6 @@
 <?php
 require_once "../model/Customer.php";
-require_once "../model/dataAccess.php";
+require_once "../model/Database_Access.php";
 
 $customerList = getAllCustomers();
 ?>
