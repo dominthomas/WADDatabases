@@ -8,6 +8,8 @@
     private $Arrival_Date;
     private $Cost;
     private $Seats_Booked;
+    private $Departure_Time;
+    private $Arrival_Time;
 
     function __construct(){
     }
