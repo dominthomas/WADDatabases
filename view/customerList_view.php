@@ -12,7 +12,8 @@
         </thead>
         <?php foreach ($customerList as $customer): ?>
           <tr>
-            <td><?= $customer->$First_Name ?></td>
+            <td><?= $customer->First_Name ?></td>
+            <td><?= $customer->Last_Name ?></td>
           </tr>
         <?php endforeach ?>
       </table>

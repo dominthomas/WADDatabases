@@ -44,4 +44,12 @@
     $results = $statement->fetchAll(PDO::FETCH_CLASS,"Flight");
     return $results;
   }
+
+  function getAllCustomers(){
+    global $pdo;
+    $statement = $pdo->prepare("SELECT * FROM Customers");
+    $statement->execute();
+    $results = $statement->fetchAll(PDO::FETCH_CLASS,"Customer");
+    return $results;
+  }
 ?>
