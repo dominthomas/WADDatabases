@@ -9,12 +9,13 @@
         <thead>
           <th>From</th>
           <th>To</th>
-          <th>Description</th>
+          <th>Departure</th>
+          <th>Arrival</th>
         </thead>
         <?php foreach ($flightList as $flight): ?>
           <tr>
-            <td><?= $flight->IATA_Code ?></td>
-            <td><?= $customer->Last_Name ?></td>
+            <td><?= $flight->Departure_IATA_Code ?></td>
+            <td><?= $flight->?></td>
           </tr>
         <?php endforeach ?>
       </table>
