@@ -15,7 +15,7 @@
         <?php foreach ($flightList as $flight): ?>
           <tr>
             <td><?= $flight->Departure_IATA_Code ?></td>
-            <td><?= $flight->?></td>
+            <td><?= $flight->Arrival_IATA_Code?></td>
           </tr>
         <?php endforeach ?>
       </table>
