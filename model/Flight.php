@@ -21,5 +21,12 @@
     function __set($name,$value){
       $this->$name = $value;
     }
+
+    function journey(){
+      $start = explode(":", $this->Departure_Time);
+      $end = explode(":", $this->Arrival_Time);
+      $journey = $start[0].":".$start[1]."-".$end[0].":".$end[1];
+      return $journey;
+    }
   }
 ?>

@@ -52,4 +52,12 @@
     $results = $statement->fetchAll(PDO::FETCH_CLASS,"Customer");
     return $results;
   }
+
+  function getFlightsByDate($date){
+    global $pdo;
+    $statement = $pdo->prepare("SELECT * FROM Customers WHERE Departure_Date = '?''");
+    $statement->execute($date);
+    $results = $statement->fetchAll(PDO::FETCH_CLASS,"Flight");
+    return $results;
+  }
 ?>
