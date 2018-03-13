@@ -2,7 +2,7 @@
 require_once "../model/Flight.php";
 require_once "../model/Database_Access.php";
 
-if (!isset($_REQUEST['search'])){
+if (!isset($_REQUEST['search'])||$_REQUEST['search']==""){
   $flightList = getAllFlights();
 }
 else{
