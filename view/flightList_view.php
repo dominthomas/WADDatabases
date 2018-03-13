@@ -6,7 +6,7 @@
         <title>List of available Flights</title>
     </head>
     <body>
-      <form action="../controller/flightList.php" method="get">
+      <form action="flightList_view.php" method="get">
         Search flights by date:
         <input type="text" name="search" placeholder="YYYY-MM-DD"/><br/>
         <input type="submit" value="Search"/>
