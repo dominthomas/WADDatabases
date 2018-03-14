@@ -7,8 +7,14 @@
     </head>
     <body>
       <form action="flightList_view.php" method="get">
-        Search flights by date:
+        Search available flights:
         <input type="text" name="search" placeholder="YYYY-MM-DD"/><br/>
+        <select name="option">
+          <option value="1">Departure Date</option>
+          <option value="2">Destination</option>
+          <option value="3">Departure Airport</option>
+          <option value="4">Day of the Week</option>
+        </select>
         <input type="submit" value="Search"/>
       </form>
       <table>

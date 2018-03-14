@@ -53,10 +53,34 @@
     return $results;
   }
 
-  function getFlightsByDate($date){
+  function getFlightsByDate($search){
     global $pdo;
     $statement = $pdo->prepare("SELECT * FROM Flights WHERE Departure_Date = ?");
-    $statement->execute([$date]);
+    $statement->execute([$search]);
+    $results = $statement->fetchAll(PDO::FETCH_CLASS,"Flight");
+    return $results;
+  }
+
+  function getFlightsByDestination($search){
+    global $pdo;
+    $statement = $pdo->prepare("SELECT * FROM Flights WHERE Arrival_IATA_Code = ?");
+    $statement->execute([$search]);
+    $results = $statement->fetchAll(PDO::FETCH_CLASS,"Flight");
+    return $results;
+  }
+
+  function getFlightsByDepartureAirport($search){
+    global $pdo;
+    $statement = $pdo->prepare("SELECT * FROM Flights WHERE Departure_IATA_Code = ?");
+    $statement->execute([$search]);
+    $results = $statement->fetchAll(PDO::FETCH_CLASS,"Flight");
+    return $results;
+  }
+
+  function getFlightsByDay($search){
+    global $pdo;
+    $statement = $pdo->prepare("SELECT * FROM Flights WHERE  WEEKDAY(Departure_Date) = ?");
+    $statement->execute([$search]);
     $results = $statement->fetchAll(PDO::FETCH_CLASS,"Flight");
     return $results;
   }
