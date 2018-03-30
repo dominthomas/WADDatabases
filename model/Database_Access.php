@@ -1,20 +1,20 @@
 <?php
   final class Database_Access{
-    private static instance = null;
+    private static $instance = null;
+    private $pdo;
 
     private function __construct(){
-      $pdo = new PDO("mysql:host=kunet.kingston.ac.uk;dbname=dbAk1507061",
+      global $pdo = new PDO("mysql:host=kunet.kingston.ac.uk;dbname=dbAk1507061",
       "k1507061",
       "Ouzen~1",
       [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
-      );
-    }
+    );}
 
     public static function getInstance(){
-      if(instance == null){
-        instance = new Database_Access();
+      if(self::$instance == null){
+        self::$instance = new Database_Access();
       }
-      return instance;
+      return self::$instance;
     }
 
     function getAllAircraft_Models(){
