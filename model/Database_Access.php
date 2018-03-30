@@ -10,7 +10,7 @@
       );
     }
 
-    public static function singleton(){
+    public static function getInstance(){
       if(instance == null){
         instance = new Database_Access();
       }
