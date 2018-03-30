@@ -65,6 +65,8 @@
 
       <div class="panel-body">
 
+
+<form method="post">
         <div class="form-group">
           <label for="sel1">From</label>
            <select class="form-control" id="sel1">
@@ -89,8 +91,6 @@
   <div class="row">
    <div class="col-md-6 col-sm-6 col-xs-12">
 
-    <!-- Form begins -->
-    <form method="post">
       <div class="form-group"> <!-- Date input -->
         <label class="control-label" for="date">Date</label>
         <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
