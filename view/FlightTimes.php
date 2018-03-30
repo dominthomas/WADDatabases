@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Fly Guys By Rambutan</title>
+  <title>Flight Times</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -11,6 +11,7 @@
   <script src="bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
   <link rel="stylesheet" href="bootstrap-datepicker-master/dist/css/bootstrap-datepicker3.css">
   <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
+  <link rel="icon" href="TabIcon.jpg">
 </head>
 <body>
   <nav class="navbar navbar-inverse">
@@ -22,12 +23,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Fly Guys</a>
+       <a class="navbar-brand" href="#">Fly Guys</a>
        </div>
        <div class="collapse navbar-collapse" id="myNavBar">
          <ul class="nav navbar-nav navbar-right ">
            <li class="active"><a href="#">Book</a></li>
-           <li><a href="#">Status</a></li>
+           <li><a href="FlightStatus.php">Status</a></li>
            <li><a href="#">Discover</a></li>
 
 
@@ -42,7 +43,7 @@
     <ul class="dropdown-menu">
       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Empty Basket</a></li>
       <li role="presentation" class="divider"></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><strong>Sign in</Strong> </a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="UserLogin.php"><strong>Sign in</Strong> </a></li>
     </ul>
   </div>
 </li>
@@ -50,17 +51,17 @@
        </div>
      </div>
   </nav>
+
 <div class="static">
   <div class ="container">
     <div class="panel panel-default">
       <div class="panel-heading">
         <ul class="nav nav-pills nav-justified" role="tablist">
-        <li><a href="index.html">Booking</a></li>
-        <li class="active"><a href="#">Flight Times</a></li>
+        <li><a href="index.php">Booking</a></li>
+        <li class="active"><a href="FlightTimes.php">Flight Times</a></li>
         <li><a href="#">My Trips</a></li>
       </ul>
       </div>
-
 <div class="bootstrap-iso">
  <div class="container-fluid">
   <div class="row">

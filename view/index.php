@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php require_once "../controller/airportList.php" ?>
 <head>
-  <title>Fly Guys By Rambutan</title>
+  <title>Booking</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -11,6 +12,7 @@
   <script src="bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
   <link rel="stylesheet" href="bootstrap-datepicker-master/dist/css/bootstrap-datepicker3.css">
   <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
+
 </head>
 <body>
   <nav class="navbar navbar-inverse">
@@ -22,12 +24,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Fly Guys</a>
+       <a class="navbar-brand" href="#">Fly Guys</a>
        </div>
        <div class="collapse navbar-collapse" id="myNavBar">
          <ul class="nav navbar-nav navbar-right ">
-           <li class="active"><a href="#">Book</a></li>
-           <li><a href="#">Status</a></li>
+           <li class="active"><a href="index.php">Book</a></li>
+           <li><a href="FlightStatus.php">Status</a></li>
            <li><a href="#">Discover</a></li>
 
 
@@ -42,7 +44,7 @@
             <ul class="dropdown-menu">
               <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Empty Basket</a></li>
               <li role="presentation" class="divider"></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><strong>Sign in</Strong> </a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="UserLogin.php"><strong>Sign in</Strong> </a></li>
             </ul>
             </div>
           </li>
@@ -56,7 +58,7 @@
       <div class="panel-heading">
         <ul class="nav nav-pills nav-justified" role="tablist">
         <li class="active"><a href="#">Booking</a></li>
-        <li><a href="FlightTimes.html">Flight Times</a></li>
+        <li><a href="FlightTimes.php">Flight Times</a></li>
         <li><a href="#">My Trips</a></li>
       </ul>
       </div>
@@ -76,12 +78,11 @@
      data-toggle="dropdown">To
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
-  <li><a href="#">Manchester (<strong>MAN</strong>)</a></li>
-    <li><a href="#">Glasgow (<strong>GLA</strong>)</a></li>
-      <li><a href="#">Dublin (<strong>DUB</strong>)</a></li>
-        <li><a href="#">Paris (<strong>CDG</strong>)</a></li>
-          <li><a href="#">Madrid (<strong>MAD</strong>)</a></li>
-            <li><a href="#">Brussels (<strong>BRU</strong>)</a></li>
+
+      <?php foreach ($airportList as $airport): ?>
+  <li><a href="#"><?= $Airport->$Airport_Location ?> (<strong><?= $Airport->$IATA_Code ?></strong>)</a></li>
+<?php endforeach ?>
+
 </ul>
 </div>
 <div class="bootstrap-iso">
