@@ -69,7 +69,9 @@
         data-toggle="dropdown">From
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
-      <li><a href="#">London Stanstead Airport (<strong>STN</strong>)</a></li>
+      <?php foreach ($airportList as $airport): ?>
+  <li><a href="#"><?= $airport->Airport_Location ?> (<strong><?= $airport->IATA_Code ?></strong>)</a></li>
+<?php endforeach ?>
     </ul>
   </div>
 
