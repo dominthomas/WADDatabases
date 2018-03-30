@@ -9,7 +9,7 @@
       [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
     );
   }
-  
+
     public static function getInstance(){
       if(self::$instance == null){
         self::$instance = new Database_Access();
@@ -42,7 +42,7 @@
 
   function getAllAirports(){
     global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM Airports WHERE NOT IATA_Code = 'STN'");
+    $statement = $pdo->prepare("SELECT * FROM Airports");
     $statement->execute();
     $results = $statement->fetchAll(PDO::FETCH_CLASS,"Airport");
     return $results;
