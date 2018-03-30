@@ -27,7 +27,7 @@
        </div>
        <div class="collapse navbar-collapse" id="myNavBar">
          <ul class="nav navbar-nav navbar-right ">
-           <li class="active"><a href="index.html">Book</a></li>
+           <li class="active"><a href="index.php">Book</a></li>
            <li><a href="FlightStatus.html">Status</a></li>
            <li><a href="#">Discover</a></li>
 
@@ -77,12 +77,10 @@
      data-toggle="dropdown">To
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
-  <li><a href="#">Manchester (<strong>MAN</strong>)</a></li>
-    <li><a href="#">Glasgow (<strong>GLA</strong>)</a></li>
-      <li><a href="#">Dublin (<strong>DUB</strong>)</a></li>
-        <li><a href="#">Paris (<strong>CDG</strong>)</a></li>
-          <li><a href="#">Madrid (<strong>MAD</strong>)</a></li>
-            <li><a href="#">Brussels (<strong>BRU</strong>)</a></li>
+      <?php foreach ($results as $Airport): ?>
+  <li><a href="#"><?= $Airport->$Airport_Location ?> (<strong><?= $Airport->$IATA_Code ?></strong>)</a></li>
+<?php endforeach ?>
+
 </ul>
 </div>
 <div class="bootstrap-iso">
