@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php require_once "../controller/airportList.php" ?>
 <head>
   <title>Booking</title>
   <meta charset="utf-8">
@@ -28,7 +29,7 @@
        <div class="collapse navbar-collapse" id="myNavBar">
          <ul class="nav navbar-nav navbar-right ">
            <li class="active"><a href="index.php">Book</a></li>
-           <li><a href="FlightStatus.html">Status</a></li>
+           <li><a href="FlightStatus.php">Status</a></li>
            <li><a href="#">Discover</a></li>
 
 
@@ -43,7 +44,7 @@
             <ul class="dropdown-menu">
               <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Empty Basket</a></li>
               <li role="presentation" class="divider"></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="UserLogin.html"><strong>Sign in</Strong> </a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="UserLogin.php"><strong>Sign in</Strong> </a></li>
             </ul>
             </div>
           </li>
@@ -57,7 +58,7 @@
       <div class="panel-heading">
         <ul class="nav nav-pills nav-justified" role="tablist">
         <li class="active"><a href="#">Booking</a></li>
-        <li><a href="FlightTimes.html">Flight Times</a></li>
+        <li><a href="FlightTimes.php">Flight Times</a></li>
         <li><a href="#">My Trips</a></li>
       </ul>
       </div>
@@ -77,7 +78,8 @@
      data-toggle="dropdown">To
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
-      <?php foreach ($results as $Airport): ?>
+
+      <?php foreach ($airportList as $airport): ?>
   <li><a href="#"><?= $Airport->$Airport_Location ?> (<strong><?= $Airport->$IATA_Code ?></strong>)</a></li>
 <?php endforeach ?>
 
