@@ -80,7 +80,7 @@
     <ul class="dropdown-menu">
 
       <?php foreach ($airportList as $airport): ?>
-  <li><a href="#"><?= $airport->$Airport_Location ?> (<strong><?= $airport->$IATA_Code ?></strong>)</a></li>
+  <li><a href="#"><?= $airport->Airport_Location ?> (<strong><?= $airport->IATA_Code ?></strong>)</a></li>
 <?php endforeach ?>
 
 </ul>
