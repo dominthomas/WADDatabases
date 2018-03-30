@@ -62,31 +62,28 @@
         <li><a href="#">My Trips</a></li>
       </ul>
       </div>
-      <div class="panel-body">
-        <div class="btn-group">
 
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
-        data-toggle="dropdown">From
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
+      <div class="panel-body">
+
+        <div class="form-group">
+          <label for="sel1">From</label>
+           <select class="form-control" id="sel1">
       <?php foreach ($airportList as $airport): ?>
-  <li><a href="#"><?= $airport->Airport_Location ?> (<strong><?= $airport->IATA_Code ?></strong>)</a></li>
+<option><?= $airport->Airport_Location ?> (<strong><?= $airport->IATA_Code ?></strong>)</option>
 <?php endforeach ?>
-    </ul>
+</select>
   </div>
 
-<div class="btn-group">
-    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2"
-     data-toggle="dropdown">To
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-
-      <?php foreach ($airportList as $airport): ?>
-  <li><a href="#"><?= $airport->Airport_Location ?> (<strong><?= $airport->IATA_Code ?></strong>)</a></li>
+    <div class="form-group">
+      <label for="sel2">From</label>
+       <select class="form-control" id="sel2">
+  <?php foreach ($airportList as $airport): ?>
+<option><?= $airport->Airport_Location ?> (<strong><?= $airport->IATA_Code ?></strong>)</option>
 <?php endforeach ?>
-
-</ul>
+</select>
 </div>
+
+
 <div class="bootstrap-iso">
  <div class="container-fluid">
   <div class="row">
