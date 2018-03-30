@@ -66,7 +66,7 @@
       <div class="panel-body">
 
 
-<form action = "../controller/searchFlights.php"method="post">
+<form action = "../controller/flightList.php" method="post">
         <div class="form-group">
           <label for="sel1">From</label>
            <select class="form-control" id="sel1">
@@ -95,7 +95,7 @@
         <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
       </div>
       <div class="form-group"> <!-- Submit button -->
-        <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+        <button class="btn btn-primary " name="submit" type="submit">Search</button>
       </div>
 
      </form>
