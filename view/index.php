@@ -66,7 +66,7 @@
       <div class="panel-body">
 
 
-<form method="post">
+<form action = "../controller/searchFlights.php"method="post">
         <div class="form-group">
           <label for="sel1">From</label>
            <select class="form-control" id="sel1">
@@ -85,7 +85,6 @@
 </select>
 </div>
 
-
 <div class="bootstrap-iso">
  <div class="container-fluid">
   <div class="row">
@@ -98,6 +97,7 @@
       <div class="form-group"> <!-- Submit button -->
         <button class="btn btn-primary " name="submit" type="submit">Submit</button>
       </div>
+
      </form>
      <!-- Form ends -->
 
