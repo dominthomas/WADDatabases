@@ -1,21 +1,10 @@
 <?php
-  final class Database_Access{
-    private static $instance = null;
-    private $pdo;
-    private function __construct(){
-      global $pdo = new PDO("mysql:host=kunet.kingston.ac.uk;dbname=dbAk1507061",
-      "k1507061",
-      "Ouzen~1",
-      [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
-    );
-  }
-
-    public static function getInstance(){
-      if(self::$instance == null){
-        self::$instance = new Database_Access();
-      }
-      return self::$instance;
-    }
+$pdo = new PDO("mysql:host=kunet.kingston.ac.uk;dbname=dbAk1507061",
+  "k1507061",
+  "Ouzen~1",
+  [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+  );
+  
   function getAllAircraft_Models(){
     global $pdo;
     $statement = $pdo->prepare("SELECT * FROM Aircrafts");
