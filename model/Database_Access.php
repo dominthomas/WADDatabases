@@ -125,7 +125,6 @@ class Database_Access{
     $statement = $this->pdo->execute([$flight->Flight_Number]);
   }
 
-
   function addAirport($airport){
     $statement =  $this->pdo->prepare("INSERT INTO Airports (IATA_Code,Airport_Location,Airport_Information) VALUES (?,?,?)");
     $statement->execute([$airport->IATA_Code,$airport->Airport_Location,$airport->Airport_Information]);
