@@ -1,11 +1,4 @@
 <?php
-<<<<<<< HEAD
-$pdo = new PDO("mysql:host=kunet.kingston.ac.uk;dbname=dbAk1507061",
-  "k1507061",
-  "Ouzen~1",
-  [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
-  );
-=======
 class Database_Access{
   private static $instance;
   private $pdo;
@@ -23,7 +16,6 @@ class Database_Access{
       }
       return static::$instance;
     }
->>>>>>> b55b5ff0d296735ff7c3a1b1e1c92db96de73618
 
   function getAllAircraft_Models(){
     $statement = $this->pdo->prepare("SELECT * FROM Aircrafts");
@@ -104,38 +96,19 @@ class Database_Access{
     return $results;
   }
 
-<<<<<<< HEAD
   function addAirport($airport){
-   global $pdo;
-   $statement =  $pdo->prepare('INSERT INTO Airports (IATA_Code, Airport_Location, Airport_Information) VALUES (?,?,?)');
-   $statement->execute([$airport->IATA_Code, $airport->Airport_Location, $airport->Airport_Information]);
-  }
-
-  function updateAiport($airport,$iata,$info,$airport){
-    global $pdo;
-    $statement =  $pdo->prepare("UPDATE Aiports SET IATA_Code = ?,Airport_Location = ?,Airport_Information = ?) WHERE IATA_Code = ?");
-=======
-  function addAirport($aiport){
     $statement =  $this->pdo->prepare("INSERT INTO Aiports (IATA_Code,Airport_Location,Airport_Information) VALUES (?,?,?)");
-    $statement->execute([]);
+    $statement->execute([$airport->IATA_Code,$aiport->Airport_Location,$aiport->Airport_Information]);
   }
 
-  function updateAiport($airport,$iata,$info,$airport){
+  function updateAirport($airport,$iata,$info,$airport){
     $statement =  $this->pdo->prepare("UPDATE Aiports SET IATA_Code = ?,Airport_Location = ?,Airport_Information = ?) WHERE IATA_Code = ?");
->>>>>>> b55b5ff0d296735ff7c3a1b1e1c92db96de73618
     $statement->execute([$airport,$iata,$info,$airport->IATA_Code]);
   }
 
-  function deleteAiport($iata){
-<<<<<<< HEAD
-    global $pdo;
-    $statement =  $pdo->prepare("DELETE FROM Aiports WHERE IATA_Code = ?");
-    $statement->execute([$iata]);
-  }
-=======
+  function deleteAirport($iata){
     $statement =  $this->pdo->prepare("DELETE FROM Aiports WHERE IATA_Code = ?");
     $statement->execute([$iata]);
   }
 }
->>>>>>> b55b5ff0d296735ff7c3a1b1e1c92db96de73618
 ?>
