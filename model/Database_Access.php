@@ -96,13 +96,16 @@ class Database_Access{
     $results = $statement->fetchAll(PDO::FETCH_CLASS,"Flight");
     return $results;
   }
-  function addFlight($flight){
+
+
+  /*function addFlight($flight){
     $statement = $this->pdo->prepare();
     $statement = $this->pdo->execute([$flight->Flight_Number,
     $flight->Aircraft_ID,
     $flight->Departure_IATA_Code,
     $flight->]);
   }
+  */
 
   function addAirport($airport){
     $statement =  $this->pdo->prepare("INSERT INTO Airports (IATA_Code,Airport_Location,Airport_Information) VALUES (?,?,?)");

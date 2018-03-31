@@ -1,6 +1,6 @@
 <?php
 require_once "../model/Database_Access.php";
-require_once("../model/Airport.php");
+require_once "../model/Airport.php";
 
 
 if(isset($_REQUEST["iata_code"])){
