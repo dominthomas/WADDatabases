@@ -8,6 +8,7 @@
     private $Cost;
     private $Departure_Time;
     private $Flight_Duration;
+    
     function __construct(){
     }
 

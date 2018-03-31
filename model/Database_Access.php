@@ -97,11 +97,32 @@ class Database_Access{
     return $results;
   }
   function addFlight($flight){
-    $statement = $this->pdo->prepare();
+    $statement = $this->pdo->prepare("INSERT INTO Flights (Flight_Number,Aircraft_ID,Departure_IATA_Code,Departure_Date,Arrival_IATA_Code,Cost,Departure_Time,Flight_Duration) VALUES (?,?,?,?,?,?,?,?)");
     $statement = $this->pdo->execute([$flight->Flight_Number,
     $flight->Aircraft_ID,
     $flight->Departure_IATA_Code,
-    $flight->]);
+    $flight->Departure_Date,
+    $flight->Arrival_IATA_Code,
+    $flight->Cost,
+    $flight->Departure_Time,
+    $flight->Flight_Duration]);
+  }
+
+  function updateFlight($flight,$flightNo){
+    $statement = $this->pdo->prepare("UPDATE Flights SET Flight_Number = ?,Aircraft_ID,Departure_IATA_Code = ?,Departure_Date = ?,Arrival_IATA_Code = ?,Cost = ?,Departure_Time,Flight_Duration WHERE ?");
+    $statement = $this->pdo->execute([$flight->Flight_Number,
+    $flight->Aircraft_ID,
+    $flight->Departure_IATA_Code,
+    $flight->Departure_Date,
+    $flight->Arrival_IATA_Code,
+    $flight->Cost,
+    $flight->Departure_Time,
+    $flight->Flight_Duration]);
+  }
+
+  function deleteFlight($flightNo){
+    $statement = $this->pdo->prepare("DELETE FROM Flights WHERE Flight_Number = ?");
+    $statement = $this->pdo->execute([$flight->Flight_Number]);
   }
 
   function addAirport($airport){
