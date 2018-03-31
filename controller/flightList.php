@@ -50,7 +50,7 @@ else{
 
 if(!isset($_REQUEST['addFlight'])){
   $flight = new Flight();
-  $flight->Flight_Number = $_REQUEST['Flight_Number'];
+  $flight->Flight_Number = $_REQUEST['addFlight'];
   $flight->Aircraft_ID = $_REQUEST['Aircraft_ID'];
   $Departure_IATA_Code = $_REQUEST['Departure_IATA_Code'];
   $Departure_Date = $_REQUEST['Departure_Date'];
@@ -62,6 +62,17 @@ if(!isset($_REQUEST['addFlight'])){
   Database_Access::getInstance()->addFlight($flight);
 }
 elseif(!isset($_REQUEST['updateFlight'])){
+
+  
+  $flight = new Flight();
+  $flight->Flight_Number = $_REQUEST['Flight_Number'];
+  $flight->Aircraft_ID = $_REQUEST['Aircraft_ID'];
+  $Departure_IATA_Code = $_REQUEST['Departure_IATA_Code'];
+  $Departure_Date = $_REQUEST['Departure_Date'];
+  $Arrival_IATA_Code = $_REQUEST['Arrival_IATA_Code'];
+  $Cost = $_REQUEST['Cost'];
+  $Departure_Time = $_REQUEST['Departure_Time'];
+  $Flight_Duration = $_REQUEST['Flight_Duration'];
 
 }
 elseif(!isset($_REQUEST['deleteFlight'])){
