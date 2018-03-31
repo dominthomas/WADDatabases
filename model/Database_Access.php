@@ -122,7 +122,7 @@ class Database_Access{
 
   function deleteFlight($flightNo){
     $statement = $this->pdo->prepare("DELETE FROM Flights WHERE Flight_Number = ?");
-    $statement = $this->pdo->execute([$flight->Flight_Number]);
+    $statement = $this->pdo->execute([$flightNo]);
   }
 
   function addAirport($airport){
