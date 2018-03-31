@@ -16,9 +16,10 @@ if(isset($_REQUEST["iata_code"])){
 
 
   Database_Access::getInstance()->addAirport($airport);
-  echo "$iata_code has been added.";
+  /*echo "$iata_code has been added.";*/
 
 }
+require_once "../view/admin2.php";
 
 if(isset($_REQUEST['current_iata'])){
 
