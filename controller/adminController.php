@@ -15,9 +15,9 @@ if(isset($_REQUEST["iata_code"])){
   $airport->Airport_Information = htmlentities($airport_information);
 
 
-  addAirport($airport);
+  $customerList = Database_Access::getInstance()->addAirport($airport);
   $status = "$iata_code has been added.";
-  
+
 }
 
 ?>
