@@ -47,4 +47,24 @@ else{
     $flightList = Database_Access::getInstance()->getAllFlights();
   }
 }
+
+if(!isset($_REQUEST['addFlight'])){
+  $flight = new Flight();
+  $flight->Flight_Number = $_REQUEST['Flight_Number'];
+  $flight->Aircraft_ID = $_REQUEST['Aircraft_ID'];
+  $Departure_IATA_Code = $_REQUEST['Departure_IATA_Code'];
+  $Departure_Date = $_REQUEST['Departure_Date'];
+  $Arrival_IATA_Code = $_REQUEST['Arrival_IATA_Code'];
+  $Cost = $_REQUEST['Cost'];
+  $Departure_Time = $_REQUEST['Departure_Time'];
+  $Flight_Duration = $_REQUEST['Flight_Duration'];
+
+  Database_Access::getInstance()->addFlight($flight);
+}
+elseif(!isset($_REQUEST['updateFlight'])){
+
+}
+elseif(!isset($_REQUEST['deleteFlight'])){
+
+}
 ?>
