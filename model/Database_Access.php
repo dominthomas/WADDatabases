@@ -87,17 +87,17 @@ class Database_Access{
     return $results;
   }
 
-  function addAirport($aiport){
+  function addAirport($airport){
     $statement =  $this->pdo->prepare("INSERT INTO Aiports (IATA_Code,Airport_Location,Airport_Information) VALUES (?,?,?)");
-    $statement->execute([]);
+    $statement->execute([$airport->IATA_Code,$aiport->Airport_Location,$aiport->Airport_Information]);
   }
 
-  function updateAiport($airport,$iata,$info,$airport){
+  function updateAirport($airport,$iata,$info,$airport){
     $statement =  $this->pdo->prepare("UPDATE Aiports SET IATA_Code = ?,Airport_Location = ?,Airport_Information = ?) WHERE IATA_Code = ?");
     $statement->execute([$airport,$iata,$info,$airport->IATA_Code]);
   }
 
-  function deleteAiport($iata){
+  function deleteAirport($iata){
     $statement =  $this->pdo->prepare("DELETE FROM Aiports WHERE IATA_Code = ?");
     $statement->execute([$iata]);
   }
