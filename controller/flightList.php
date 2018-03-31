@@ -3,20 +3,20 @@ require_once "../model/Flight.php";
 require_once "../model/Database_Access.php";
 
 if (!isset($_REQUEST['search'])||$_REQUEST['search']==""){
-  $flightList = getAllFlights();
+  $flightList = Database_Access::getInstance()->getAllFlights();
 }
 else{
   if($_REQUEST['option']==1){
     $search = $_REQUEST['search'];
-    $flightList = getFlightsByDate($search);
+    $flightList = Database_Access::getInstance()->getFlightsByDate($search);
   }
   elseif($_REQUEST['option']==2){
     $search = $_REQUEST['search'];
-    $flightList = getFlightsByDestination($search);
+    $flightList = Database_Access::getInstance()->getFlightsByDestination($search);
   }
   elseif($_REQUEST['option']==3){
     $search = $_REQUEST['search'];
-    $flightList = getFlightsByDepartureAirport($search);
+    $flightList = Database_Access::getInstance()->getFlightsByDepartureAirport($search);
   }
   elseif($_REQUEST['option']==4){
     $search = $_REQUEST['search'];
@@ -41,10 +41,10 @@ else{
     else{
       $search = 6;
     }
-    $flightList = getFlightsByDay($search);
+    $flightList = Database_Access::getInstance()->getFlightsByDay($search);
   }
   else{
-    $flightList = getAllFlights();
+    $flightList = Database_Access::getInstance()->getAllFlights();
   }
 }
 ?>
