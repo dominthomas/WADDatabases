@@ -30,13 +30,12 @@
          <ul class="nav navbar-nav navbar-right ">
            <li class="active"><a href="index.php">Book</a></li>
            <li><a href="FlightStatus.php">Status</a></li>
-           <li><a href="#">Discover</a></li>
 
 
            <li>
              <div class="btn-toolbar">
-                   <button class="btn btn-primary navbar-btn" type="button">Login
-                     <span class="glyphicon glyphicon-user"></span>
+                   <button class="btn btn-primary navbar-btn" type="button" action="admin.php">Admin
+										 <span class="glyphicon glyphicon-user"></span>
                    </button>
             <button class="btn btn-primary navbar-btn dropdown-toggle" type="button"
              data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>
@@ -61,8 +60,10 @@
       <div class="panel-heading">
         <ul class="nav nav-pills nav-justified" role="tablist">
         <li class="active"><a href="#">Add Airports</a></li>
-        <li><a href="FlightTimes.php">Flight Times</a></li>
-        <li><a href="#">My Trips</a></li>
+        <li><a href="#">Update Aiports</a></li>
+        <li><a href="#">Add Flights</a></li>
+        <li><a href="#">Update Flights</a></li>
+
       </ul>
       </div>
 
