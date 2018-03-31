@@ -1,53 +1,67 @@
 <?php
+<<<<<<< HEAD
 $pdo = new PDO("mysql:host=kunet.kingston.ac.uk;dbname=dbAk1507061",
   "k1507061",
   "Ouzen~1",
   [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
   );
+=======
+class Database_Access{
+  private static $instance;
+  private $pdo;
+
+  private function __construct(){
+    $this->pdo = new PDO("mysql:host=kunet.kingston.ac.uk;dbname=dbAk1507061",
+      "k1507061",
+      "Ouzen~1",
+      [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+    }
+
+    function getInstance(){
+      if(!isset(static::$instance)){
+        static::$instance = new Database_Access();
+      }
+      return static::$instance;
+    }
+>>>>>>> b55b5ff0d296735ff7c3a1b1e1c92db96de73618
 
   function getAllAircraft_Models(){
-    global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM Aircrafts");
+    $statement = $this->pdo->prepare("SELECT * FROM Aircrafts");
     $statement->execute();
     $results = $statement->fetchAll(PDO::FETCH_CLASS,"Aircraft");
     return $results;
   }
 
   function getAllAircrafts(){
-    global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM Aircrafts");
+    $statement = $this->pdo->prepare("SELECT * FROM Aircrafts");
     $statement->execute();
     $results = $statement->fetchAll(PDO::FETCH_CLASS,"Aircraft");
     return $results;
   }
 
   function getAllBookings(){
-    global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM Aircrafts");
+    $statement = $this->pdo->prepare("SELECT * FROM Aircrafts");
     $statement->execute();
     $results = $statement->fetchAll(PDO::FETCH_CLASS,"Aircraft");
     return $results;
   }
 
   function getAllAirports(){
-    global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM Airports");
+    $statement =$this->pdo->prepare("SELECT * FROM Airports");
     $statement->execute();
     $results = $statement->fetchAll(PDO::FETCH_CLASS,"Airport");
     return $results;
   }
 
   function getAllFlights(){
-    global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM Flights");
+    $statement = $this->pdo->prepare("SELECT * FROM Flights");
     $statement->execute();
     $results = $statement->fetchAll(PDO::FETCH_CLASS,"Flight");
     return $results;
   }
 
   function getAllCustomers(){
-    global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM Customers");
+    $statement = $this->pdo->prepare("SELECT * FROM Customers");
     $statement->execute();
     $results = $statement->fetchAll(PDO::FETCH_CLASS,"Customer");
     return $results;
@@ -63,37 +77,34 @@ $pdo = new PDO("mysql:host=kunet.kingston.ac.uk;dbname=dbAk1507061",
   }
 
   function getFlightsByDate($search){
-    global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM Flights WHERE Departure_Date = ?");
+    $statement = $this->pdo->prepare("SELECT * FROM Flights WHERE Departure_Date = ?");
     $statement->execute([$search]);
     $results = $statement->fetchAll(PDO::FETCH_CLASS,"Flight");
     return $results;
   }
 
   function getFlightsByDestination($search){
-    global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM Flights WHERE Arrival_IATA_Code = ?");
+    $statement = $this->pdo->prepare("SELECT * FROM Flights WHERE Arrival_IATA_Code = ?");
     $statement->execute([$search]);
     $results = $statement->fetchAll(PDO::FETCH_CLASS,"Flight");
     return $results;
   }
 
   function getFlightsByDepartureAirport($search){
-    global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM Flights WHERE Departure_IATA_Code = ?");
+    $statement = $this->pdo->prepare("SELECT * FROM Flights WHERE Departure_IATA_Code = ?");
     $statement->execute([$search]);
     $results = $statement->fetchAll(PDO::FETCH_CLASS,"Flight");
     return $results;
   }
 
   function getFlightsByDay($search){
-    global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM Flights WHERE  WEEKDAY(Departure_Date) = ?");
+    $statement = $this->pdo->prepare("SELECT * FROM Flights WHERE  WEEKDAY(Departure_Date) = ?");
     $statement->execute([$search]);
     $results = $statement->fetchAll(PDO::FETCH_CLASS,"Flight");
     return $results;
   }
 
+<<<<<<< HEAD
   function addAirport($airport){
    global $pdo;
    $statement =  $pdo->prepare('INSERT INTO Airports (IATA_Code, Airport_Location, Airport_Information) VALUES (?,?,?)');
@@ -103,12 +114,28 @@ $pdo = new PDO("mysql:host=kunet.kingston.ac.uk;dbname=dbAk1507061",
   function updateAiport($airport,$iata,$info,$airport){
     global $pdo;
     $statement =  $pdo->prepare("UPDATE Aiports SET IATA_Code = ?,Airport_Location = ?,Airport_Information = ?) WHERE IATA_Code = ?");
+=======
+  function addAirport($aiport){
+    $statement =  $this->pdo->prepare("INSERT INTO Aiports (IATA_Code,Airport_Location,Airport_Information) VALUES (?,?,?)");
+    $statement->execute([]);
+  }
+
+  function updateAiport($airport,$iata,$info,$airport){
+    $statement =  $this->pdo->prepare("UPDATE Aiports SET IATA_Code = ?,Airport_Location = ?,Airport_Information = ?) WHERE IATA_Code = ?");
+>>>>>>> b55b5ff0d296735ff7c3a1b1e1c92db96de73618
     $statement->execute([$airport,$iata,$info,$airport->IATA_Code]);
   }
 
   function deleteAiport($iata){
+<<<<<<< HEAD
     global $pdo;
     $statement =  $pdo->prepare("DELETE FROM Aiports WHERE IATA_Code = ?");
     $statement->execute([$iata]);
   }
+=======
+    $statement =  $this->pdo->prepare("DELETE FROM Aiports WHERE IATA_Code = ?");
+    $statement->execute([$iata]);
+  }
+}
+>>>>>>> b55b5ff0d296735ff7c3a1b1e1c92db96de73618
 ?>
