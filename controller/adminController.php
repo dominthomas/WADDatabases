@@ -18,8 +18,10 @@ if(isset($_REQUEST["iata_code"])){
   Database_Access::getInstance()->addAirport($airport);
   /*echo "$iata_code has been added.";*/
 
+header('Location: ../view/admin2.php');
 }
-require_once "../view/admin2.php";
+
+
 
 if(isset($_REQUEST['current_iata'])){
 
@@ -34,6 +36,9 @@ if(isset($_REQUEST['current_iata'])){
   $airport->Airport_Information = htmlentities($new_airport_information);
 
   Database_Access::getInstance()->updateAirport($airport,$current_iata);
+
+  header('Location: ../view/admin2.php');
+
 }
 
 if(isset($_REQUEST['delete_iata'])){
@@ -41,6 +46,7 @@ if(isset($_REQUEST['delete_iata'])){
   $delete_iata = $_REQUEST["delete_iata"];
 
   Database_Access::getInstance()->deleteAirport($delete_iata);
+  header('Location: ../view/admin2.php');
 
 }
 ?>
