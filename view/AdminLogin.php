@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+session_start();
 <html lang="en">
 <head>
   <title>Admin Login</title>
@@ -69,14 +70,14 @@
    <div class="col-md-6 col-sm-6 col-xs-12">
 
     <!-- Form begins -->
-    <form method="post">
+    <form method="post" action="../controller/adminPage.php">
       <div class="form-group">
         <label class="control-label" for="Login">Login</label>
-        <input class="form-control" id="text" name="text" placeholder="Username" type="text"/>
+        <input class="form-control" id="text" name="username" placeholder="Username" type="text"/>
         </div>
       <div>
-        <input class="form-control" id="pass" type="password" placeholder="Password" type="text"/>
-        <input type="checkbox" onclick="myFunction()">Show Password
+        <input class="form-control" id="pass" type="password" name="password"placeholder="Password" type="text"/>
+        <input type="checkbox" onclick="showPassword()">Show Password
 
       </div>
       <div>
@@ -84,8 +85,6 @@
       </div>
         <button class="btn btn-primary " name="submit" type="submit">Submit</button>
       </div>
-      </div>
-     </form>
      <!-- Form ends -->
 
     </div>
@@ -98,7 +97,7 @@
 </div>
   </div>
   <script>
-  function myFunction() {
+  function showPassword() {
       var x = document.getElementById("pass");
       if (x.type === "password")
       {

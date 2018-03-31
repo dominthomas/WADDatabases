@@ -59,6 +59,15 @@ class Database_Access{
     return $results;
   }
 
+
+  function getFlightsByAll($search){
+    global $pdo;
+    $statement = $pdo->prepare("SELECT * FROM Flights WHERE Departure_IATA_Code = ? AND Arrival_IATA_Code = ? AND Departure_Date = ?");
+    $statement->execute([$search]);
+    $results = $statement->fetchAll(PDO::FETCH_CLASS,"Flight");
+    return $results;
+  }
+
   function getFlightsByDate($search){
     $statement = $this->pdo->prepare("SELECT * FROM Flights WHERE Departure_Date = ?");
     $statement->execute([$search]);
