@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <?php require_once "../controller/airportList.php" ?>
@@ -44,7 +45,7 @@
             <ul class="dropdown-menu">
               <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Empty Basket</a></li>
               <li role="presentation" class="divider"></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="UserLogin.php"><strong>Sign in</Strong> </a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="UserLogin.php"><strong>Admin</Strong> </a></li>
             </ul>
             </div>
           </li>
@@ -69,7 +70,7 @@
 <form action = "../controller/flightList.php" method="post">
         <div class="form-group">
           <label for="sel1">From</label>
-           <select class="form-control" id="sel1">
+           <select class="form-control" id="sel1" name="option">
       <?php foreach ($airportList as $airport): ?>
 <option><?= $airport->Airport_Location ?> (<strong><?= $airport->IATA_Code ?></strong>)</option>
 <?php endforeach ?>
@@ -77,8 +78,8 @@
   </div>
 
     <div class="form-group">
-      <label for="sel2">From</label>
-       <select class="form-control" id="sel2">
+      <label for="sel2">To</label>
+       <select class="form-control" id="sel2" name ="search">
   <?php foreach ($airportList as $airport): ?>
 <option><?= $airport->Airport_Location ?> (<strong><?= $airport->IATA_Code ?></strong>)</option>
 <?php endforeach ?>
