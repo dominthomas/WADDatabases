@@ -1,6 +1,8 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <?php require_once "../controller/airportList.php" ?>
+<?php require_once "../controller/adminController.php"?>
 <head>
 	<title>Booking</title>
   <meta charset="utf-8">
@@ -60,8 +62,8 @@
       <div class="panel-heading">
         <ul class="nav nav-pills nav-justified" role="tablist">
         <li class="active"><a href="#">Add Airports</a></li>
-        <li><a href="#">Update Aiports</a></li>
-        <li><a href="#">Add Flights</a></li>
+        <li><a href="adminUpdateAirport.php">Update Aiports</a></li>
+        <li><a href="addFlight.php">Add Flights</a></li>
         <li><a href="#">Update Flights</a></li>
 
       </ul>
@@ -71,7 +73,7 @@
 
 
     <!-- Form begins -->
-    <form action="../controller/adminController.php" method="post">
+    <form action="admin.php" method="post">
       <div class="form-group"> <!-- Date input -->
         <label class="control-label" for="date"><br/>IATA Code</label>
         <input class="form-control" id="date" name="iata_code" placeholder="Airport Name" type="text"/>
@@ -87,12 +89,26 @@
         <input class="form-control" id="date" name="airport_information" placeholder="Airport Name" type="text"/>
       </div>
 
+		</table>
       <div class="form-group"> <!-- Submit button -->
         <button class="btn btn-primary " name="addAirport" type="submit">Submit</button>
       </div>
      </form>
      <!-- Form ends -->
-
+		 <table>
+			 <thead>
+				 <th>IATA Code</th>
+				 <th>Airport</th>
+				 <th>Flight Information</th>
+			 </thead>
+		 	<?php foreach ($airportList as $airport): ?>
+			 <tr>
+				 <td><?=$airport->IATA_Code?></td>
+				 <td><?=$airport->Airport_Location?></td>
+				 <td><?=$airport->Airport_Information?></td>
+			 </tr>
+			 <?php endforeach ?>
+	 </table>
     </div>
   </div>
  </div>

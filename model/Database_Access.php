@@ -96,16 +96,24 @@ class Database_Access{
     $results = $statement->fetchAll(PDO::FETCH_CLASS,"Flight");
     return $results;
   }
+  function addFlight($flight){
+    $statement = $this->pdo->prepare();
+    $statement = $this->pdo->execute([$flight->Flight_Number,
+    $flight->Aircraft_ID,
+    $flight->Departure_IATA_Code,
+    $flight->]);
+  }
 
   function addAirport($airport){
     $statement =  $this->pdo->prepare("INSERT INTO Airports (IATA_Code,Airport_Location,Airport_Information) VALUES (?,?,?)");
     $statement->execute([$airport->IATA_Code,$airport->Airport_Location,$airport->Airport_Information]);
   }
 
-  function updateAirport($airport,$iata,$info,$airport){
-    $statement =  $this->pdo->prepare("UPDATE Airports SET IATA_Code = ?,Airport_Location = ?,Airport_Information = ?) WHERE IATA_Code = ?");
-    $statement->execute([$airport,$iata,$info,$airport->IATA_Code]);
+  function updateAirport($airport,$current_iata){
+    $statement =  $this->pdo->prepare("UPDATE Airports SET IATA_Code = ?, Airport_Location = ?, Airport_Information = ? WHERE IATA_Code = ?");
+    $statement->execute([$airport->IATA_Code, $airport->Airport_Location, $airport->Airport_Information, $current_iata]);
   }
+
 
   function deleteAirport($iata){
     $statement =  $this->pdo->prepare("DELETE FROM Airports WHERE IATA_Code = ?");
