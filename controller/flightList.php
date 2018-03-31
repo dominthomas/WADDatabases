@@ -60,10 +60,12 @@ if(!isset($_REQUEST['addFlight'])){
   $Flight_Duration = $_REQUEST['Flight_Duration'];
 
   Database_Access::getInstance()->addFlight($flight);
+  header("Location: ../view/admin2.php");
 }
 elseif(!isset($_REQUEST['updateFlight'])){
 
-  
+  $flightNo = $_REQUEST['updateFlight'];
+
   $flight = new Flight();
   $flight->Flight_Number = $_REQUEST['Flight_Number'];
   $flight->Aircraft_ID = $_REQUEST['Aircraft_ID'];
@@ -74,8 +76,10 @@ elseif(!isset($_REQUEST['updateFlight'])){
   $Departure_Time = $_REQUEST['Departure_Time'];
   $Flight_Duration = $_REQUEST['Flight_Duration'];
 
+  Database_Access::getInstance()->updateFlight($flight,$flightNo);
+
 }
 elseif(!isset($_REQUEST['deleteFlight'])){
-
+  Database_Access::getInstance()->deleteFlight($_REQUEST['deleteFlight']);
 }
 ?>
