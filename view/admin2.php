@@ -183,44 +183,44 @@
 			<form action="../controller/flightList.php" method="post">
 				<div class="form-group">
 					<label class="control-label" for="date"><br/>Current Flight Number</label>
-					<input class="form-control" id="date" name="current_flight_number" type="text"/>
+					<input class="form-control" name="current_flight_number" type="text"/>
 				</div>
 
 				<div class="form-group">
 					<label class="control-label" for="date"><br/>New Flight Number</label>
-					<input class="form-control" id="date" name="new_flight_number" type="text"/>
+					<input class="form-control" name="new_flight_number" type="text"/>
 				</div>
 
 				<div class="form-group">
 					<label class="control-label" for="date"><br/>New Aircraft ID</label>
-					<input class="form-control" id="date" name="new_aircraft_id" placeholder="Aircraft ids from 1-10" type="text"/>
+					<input class="form-control"  name="new_aircraft_id" placeholder="Aircraft ids from 1-10" type="text"/>
 				</div>
 
 				<div class="form-group">
 					<label class="control-label" for="date"><br/>New Departure IATA Code</label>
-					<input class="form-control" id="date" name="new_departure_iata_code" type="text"/>
+					<input class="form-control" name="new_departure_iata_code" type="text"/>
 				</div>
 
 				<div class="form-group">
-					<label class="control-label" for="date"><br/>New Departure Date</label>
+					<label class="control-label" ><br/>New Departure Date</label>
 					<input class="form-control" name="new_departure_date"  placeholder="YYYY-MM-DD" type="date"/>
 				</div>
 
 				<div class="form-group">
 					<label class="control-label" for="date"><br/>New Arrival IATA Code</label>
-					<input class="form-control" id="date" name="new_arrival_iata_code" type="text"/>
+					<input class="form-control"  name="new_arrival_iata_code" type="text"/>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="date"><br/>New Cost</label>
-					<input class="form-control" id="date" name="new_cost" type="text"/>
+					<input class="form-control"  name="new_cost" type="text"/>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="date"><br/>New Departure Time</label>
-					<input class="form-control" id="date" name="new_departure_time" placeholder="HH:MM:SS" type="time"/>
+					<input class="form-control"  name="new_departure_time" placeholder="HH:MM:SS" type="time"/>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="date"><br/>New Flight Duration</label>
-					<input class="form-control" id="date" name="new_flight_duration" placeholder="HH:MM:SS" type="time"/>
+					<input class="form-control"  name="new_flight_duration" placeholder="HH:MM:SS" type="time"/>
 				</div>
 
 				<div class="form-group">

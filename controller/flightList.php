@@ -71,12 +71,12 @@ elseif(isset($_REQUEST['current_flight_number'])){
   $flight = new Flight();
   $flight->Flight_Number = $_REQUEST['new_flight_number'];
   $flight->Aircraft_ID = $_REQUEST['new_aircraft_id'];
-  $Departure_IATA_Code = $_REQUEST['new_departure_iata_code'];
-  $Departure_Date = $_REQUEST['new_departure_date'];
-  $Arrival_IATA_Code = $_REQUEST['new_arrival_iata_code'];
-  $Cost = $_REQUEST['new_cost'];
-  $Departure_Time = $_REQUEST['new_departure_time'];
-  $Flight_Duration = $_REQUEST['new_flight_duration'];
+  $flight->Departure_IATA_Code = $_REQUEST['new_departure_iata_code'];
+  $flight->Departure_Date = $_REQUEST['new_departure_date'];
+  $flight->Arrival_IATA_Code = $_REQUEST['new_arrival_iata_code'];
+  $flight->Cost = $_REQUEST['new_cost'];
+  $flight->Departure_Time = $_REQUEST['new_departure_time'];
+  $flight->Flight_Duration = $_REQUEST['new_flight_duration'];
 
   Database_Access::getInstance()->updateFlight($flight,$flightNo);
 header("Location: ../view/admin2.php");
