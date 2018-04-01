@@ -16,5 +16,9 @@ require_once "Flight.php";
     function addFlight($flight){
       $this->basket = $flight;
     }
+
+    function removeFlight($index){
+      unset($this->basket[$index]);
+    }
   }
 ?>
