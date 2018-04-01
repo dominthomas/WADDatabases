@@ -3,7 +3,7 @@
 <html>
 <?php require_once "../controller/airportList.php" ?>
 <?php require_once "../controller/adminController.php"?>
-<?php require_once "../controller/flightList.php"?>
+<?php require_once "../controller/getFlightList.php"?>
 <head>
 	<title>Booking</title>
   <meta charset="utf-8">
@@ -130,7 +130,7 @@
 				 <button class="btn btn-primary " name="deleteAirport" type="submit">Delete Airport</button>
 			 </div>
 		 </form>
-		 
+
     </div>
     <div id="addFlights" class="tab-pane fade">
       <h3>Add Flights</h3>
@@ -180,6 +180,63 @@
     </div>
     <div id="updateFlights" class="tab-pane fade">
       <h3>Update Flights</h3>
+			<form action="../controller/flightList.php" method="post">
+				<div class="form-group">
+					<label class="control-label" for="date"><br/>Current Flight Number</label>
+					<input class="form-control" id="date" name="current_flight_number" type="text"/>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label" for="date"><br/>New Flight Number</label>
+					<input class="form-control" id="date" name="new_flight_number" type="text"/>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label" for="date"><br/>New Aircraft ID</label>
+					<input class="form-control" id="date" name="new_aircraft_id" placeholder="Aircraft ids from 1-10" type="text"/>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label" for="date"><br/>New Departure IATA Code</label>
+					<input class="form-control" id="date" name="new_departure_iata_code" type="text"/>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label" for="date"><br/>New Departure Date</label>
+					<input class="form-control" name="new_departure_date"  placeholder="YYYY-MM-DD" type="date"/>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label" for="date"><br/>New Arrival IATA Code</label>
+					<input class="form-control" id="date" name="new_arrival_iata_code" type="text"/>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="date"><br/>New Cost</label>
+					<input class="form-control" id="date" name="new_cost" type="text"/>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="date"><br/>New Departure Time</label>
+					<input class="form-control" id="date" name="new_departure_time" placeholder="HH:MM:SS" type="time"/>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="date"><br/>New Flight Duration</label>
+					<input class="form-control" id="date" name="new_flight_duration" placeholder="HH:MM:SS" type="time"/>
+				</div>
+
+				<div class="form-group">
+					<button class="btn btn-primary " type="submit">Update Flight</button>
+				</div>
+			 </form>
+
+			 <form action="../controller/flightList.php" method="post">
+				 <div class="form-group">
+					 <label class="control-label" for="date"><br/>Delete Flight</label>
+					 <input class="form-control" id="date" name="delete_flight_number" placeholder="Flight Number" type="text"/>
+				 </div>
+				 <div class="form-group">
+					 <button class="btn btn-primary " type="submit">Delete Flight</button>
+				 </div>
+			 </form>
     </div>
   </div>
 </div>
@@ -188,7 +245,7 @@
 <div class="panel panel-default">
 <ul class="nav nav-tabs">
 	<li class="active"><a data-toggle="tab" href="#airportListTab">Airports</a></li>
-	<li class="active"><a data-toggle="tab" href="#flightListTab">Flights</a></li>
+	<li><a data-toggle="tab" href="#flightListTab">Flights</a></li>
 </ul>
 
 <div class="tab-content panel-body">
@@ -210,8 +267,8 @@
 	</table>
 	</div>
 
-	<div id="flightListTab" class="tab-pane fade in active">
-		<h3>FLights</h3>
+	<div id="flightListTab" class="tab-pane fade in">
+		<h3>Flights</h3>
 		<table class="table table-bordered">
 			<thead>
 				<th>Flight Number</th>
@@ -223,7 +280,7 @@
 			<th>Departure Time</th>
 			<th>Flight Duration</th>
 			</thead>
-		 <?php foreach ($flightList as $flight): ?>
+		 <?php foreach ($getFlightList as $flight): ?>
 			<tr>
 				<td><?=$flight->Flight_Number?></td>
 				<td><?=$flight->Aircraft_ID?></td>

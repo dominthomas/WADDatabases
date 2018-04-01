@@ -2,7 +2,7 @@
 require_once "../model/Flight.php";
 require_once "../model/Database_Access.php";
 
-$flightList = Database_Access::getInstance()->getAllFlights();
+//$getflightList = Database_Access::getInstance()->getAllFlights();
 
 if (!isset($_REQUEST['search'])||$_REQUEST['search']==""){
   $flightList = Database_Access::getInstance()->getAllFlights();
@@ -50,7 +50,7 @@ else{
   }
 }
 
-if(!isset($_REQUEST['addFlight'])){
+if(isset($_REQUEST['flight_number'])){
   $flight = new Flight();
   $flight->Flight_Number = $_REQUEST['flight_number'];
   $flight->Aircraft_ID = $_REQUEST['aircraft_id'];
@@ -64,25 +64,25 @@ if(!isset($_REQUEST['addFlight'])){
   Database_Access::getInstance()->addFlight($flight);
  header("Location: ../view/admin2.php");
 }
-elseif(!isset($_REQUEST['updateFlight'])){
+elseif(isset($_REQUEST['current_flight_number'])){
 
-  $flightNo = $_REQUEST['updateFlight'];
+  $flightNo = $_REQUEST['current_flight_number'];
 
   $flight = new Flight();
-  $flight->Flight_Number = $_REQUEST['Flight_Number'];
-  $flight->Aircraft_ID = $_REQUEST['Aircraft_ID'];
-  $Departure_IATA_Code = $_REQUEST['Departure_IATA_Code'];
-  $Departure_Date = $_REQUEST['Departure_Date'];
-  $Arrival_IATA_Code = $_REQUEST['Arrival_IATA_Code'];
-  $Cost = $_REQUEST['Cost'];
-  $Departure_Time = $_REQUEST['Departure_Time'];
-  $Flight_Duration = $_REQUEST['Flight_Duration'];
+  $flight->Flight_Number = $_REQUEST['new_flight_number'];
+  $flight->Aircraft_ID = $_REQUEST['new_aircraft_id'];
+  $Departure_IATA_Code = $_REQUEST['new_departure_iata_code'];
+  $Departure_Date = $_REQUEST['new_departure_date'];
+  $Arrival_IATA_Code = $_REQUEST['new_arrival_iata_code'];
+  $Cost = $_REQUEST['new_cost'];
+  $Departure_Time = $_REQUEST['new_departure_time'];
+  $Flight_Duration = $_REQUEST['new_flight_duration'];
 
   Database_Access::getInstance()->updateFlight($flight,$flightNo);
 header("Location: ../view/admin2.php");
 }
-elseif(!isset($_REQUEST['deleteFlight'])){
-  Database_Access::getInstance()->deleteFlight($_REQUEST['deleteFlight']);
+elseif(isset($_REQUEST['delete_flight_number'])){
+  Database_Access::getInstance()->deleteFlight($_REQUEST['delete_flight_number']);
   header("Location: ../view/admin2.php");
 }
 ?>

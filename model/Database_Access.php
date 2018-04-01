@@ -109,7 +109,7 @@ class Database_Access{
   }
 
   function updateFlight($flight,$flightNo){
-    $statement = $this->pdo->prepare("UPDATE Flights SET Flight_Number = ?,Aircraft_ID,Departure_IATA_Code = ?,Departure_Date = ?,Arrival_IATA_Code = ?,Cost = ?,Departure_Time,Flight_Duration WHERE ?");
+    $statement = $this->pdo->prepare("UPDATE Flights SET Flight_Number = ?,Aircraft_ID = ?,Departure_IATA_Code = ?,Departure_Date = ?,Arrival_IATA_Code = ?,Cost = ?,Departure_Time = ?,Flight_Duration = ? WHERE Flight_Number = ?");
     $statement->execute([$flight->Flight_Number,
     $flight->Aircraft_ID,
     $flight->Departure_IATA_Code,
@@ -117,7 +117,8 @@ class Database_Access{
     $flight->Arrival_IATA_Code,
     $flight->Cost,
     $flight->Departure_Time,
-    $flight->Flight_Duration]);
+    $flight->Flight_Duration,
+    $flightNo]);
   }
 
   function deleteFlight($flightNo){
