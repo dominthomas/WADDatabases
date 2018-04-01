@@ -3,6 +3,7 @@
 <html>
 <?php require_once "../controller/airportList.php" ?>
 <?php require_once "../controller/adminController.php"?>
+<?php require_once "../controller/flightList.php"?>
 <head>
 	<title>Booking</title>
   <meta charset="utf-8">
@@ -120,24 +121,65 @@
 				</div>
 			 </form>
 
-			 <form action ="adminUpdateAirport.php" method="post">
+			 <form action ="../controller/adminController.php" method="post">
 				 <div class="form-group">
 					 <label class="control-label" for="date"><br/>Delete IATA Code</label>
 					 <input class="form-control" id="date" name="delete_iata" placeholder="Delete IATA Code" type="text"/>
 				 </div>
-
 			 <div class="form-group">
 				 <button class="btn btn-primary " name="deleteAirport" type="submit">Delete Airport</button>
 			 </div>
 		 </form>
+		 
     </div>
     <div id="addFlights" class="tab-pane fade">
       <h3>Add Flights</h3>
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+			<form action="../controller/flightList.php" method="post">
+				<div class="form-group">
+					<label class="control-label" for="date"><br/>Flight Number</label>
+					<input class="form-control" id="date" name="flight_number" type="text"/>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label" for="date"><br/>Aircraft ID</label>
+					<input class="form-control" id="date" name="aircraft_id" placeholder="Aircraft ids from 1-10" type="text"/>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label" for="date"><br/>Departure IATA Code</label>
+					<input class="form-control" id="date" name="departure_iata_code" type="text"/>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label" for="date"><br/>Departure Date</label>
+					<input class="form-control" name="departure_date"  placeholder="YYYY-MM-DD" type="date"/>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label" for="date"><br/>Arrival IATA Code</label>
+					<input class="form-control" id="date" name="arrival_iata_code" type="text"/>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="date"><br/>Cost</label>
+					<input class="form-control" id="date" name="cost" type="text"/>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="date"><br/>Departure Time</label>
+					<input class="form-control" id="date" name="departure_time" placeholder="HH:MM:SS" type="time"/>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="date"><br/>Flight Duration</label>
+					<input class="form-control" id="date" name="flight_duration" placeholder="HH:MM:SS" type="time"/>
+				</div>
+
+				<div class="form-group">
+					<button class="btn btn-primary " type="submit">Add Flight</button>
+				</div>
+			 </form>
+
     </div>
     <div id="updateFlights" class="tab-pane fade">
       <h3>Update Flights</h3>
-      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
     </div>
   </div>
 </div>
@@ -145,13 +187,13 @@
 
 <div class="panel panel-default">
 <ul class="nav nav-tabs">
-	<li class="active"><a data-toggle="tab" href="#home2">Airports</a></li>
-	<li><a data-toggle="tab" href="#menu6">Flights</a></li>
+	<li class="active"><a data-toggle="tab" href="#airportListTab">Airports</a></li>
+	<li class="active"><a data-toggle="tab" href="#flightListTab">Flights</a></li>
 </ul>
 
 <div class="tab-content panel-body">
-	<div id="home2" class="tab-pane fade in active">
-		<h3>HOME</h3>
+	<div id="airportListTab" class="tab-pane fade in active">
+		<h3>Airports</h3>
 		<table class="table table-bordered">
 			<thead>
 				<th>IATA Code</th>
@@ -167,9 +209,34 @@
 			<?php endforeach ?>
 	</table>
 	</div>
-	<div id="menu1" class="tab-pane fade">
-		<h3>Menu 1</h3>
-		<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+	<div id="flightListTab" class="tab-pane fade in active">
+		<h3>FLights</h3>
+		<table class="table table-bordered">
+			<thead>
+				<th>Flight Number</th>
+			<th>Aircraft ID</th>
+			<th>Departure IATA Code</th>
+			<th>Departure Date</th>
+			<th>Arrival IATA Code</th>
+			<th>Cost</th>
+			<th>Departure Time</th>
+			<th>Flight Duration</th>
+			</thead>
+		 <?php foreach ($flightList as $flight): ?>
+			<tr>
+				<td><?=$flight->Flight_Number?></td>
+				<td><?=$flight->Aircraft_ID?></td>
+				<td><?=$flight->Departure_IATA_Code?></td>
+				<td><?=$flight->Departure_Date?></td>
+				<td><?=$flight->Arrival_IATA_Code?></td>
+				<td><?=$flight->Cost?></td>
+				<td><?=$flight->Departure_Time?></td>
+				<td><?=$flight->Flight_Duration?></td>
+			</tr>
+			<?php endforeach ?>
+	</table>
+
 	</div>
 </div>
 </div>
