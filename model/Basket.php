@@ -1,6 +1,7 @@
 <?php
-  final class Basket{
-    private $basket;
+require_once "Flight.php";
+  class Basket{
+    private $basket = [];
     function __construct(){
     }
 
@@ -10,6 +11,10 @@
 
     function __set($name,$value){
       $this->$name = $value;
+    }
+
+    function addFlight($flight){
+      $this->basket = $flight;
     }
   }
 ?>
