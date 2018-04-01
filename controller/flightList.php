@@ -52,37 +52,37 @@ else{
 
 if(isset($_REQUEST['flight_number'])){
   $flight = new Flight();
-  $flight->Flight_Number = $_REQUEST['flight_number'];
-  $flight->Aircraft_ID = $_REQUEST['aircraft_id'];
-  $flight->Departure_IATA_Code = $_REQUEST['departure_iata_code'];
-  $flight->Departure_Date = $_REQUEST['departure_date'];
-  $flight->Arrival_IATA_Code = $_REQUEST['arrival_iata_code'];
-  $flight->Cost = $_REQUEST['cost'];
-  $flight->Departure_Time = $_REQUEST['departure_time'];
-  $flight->Flight_Duration = $_REQUEST['flight_duration'];
+  $flight->Flight_Number = htmlentities($_REQUEST['flight_number']);
+  $flight->Aircraft_ID = htmlentities($_REQUEST['aircraft_id']);
+  $flight->Departure_IATA_Code = htmlentities($_REQUEST['departure_iata_code']);
+  $flight->Departure_Date = htmlentities($_REQUEST['departure_date']);
+  $flight->Arrival_IATA_Code = htmlentities($_REQUEST['arrival_iata_code']);
+  $flight->Cost = htmlentities($_REQUEST['cost']);
+  $flight->Departure_Time = htmlentities($_REQUEST['departure_time']);
+  $flight->Flight_Duration = htmlentities($_REQUEST['flight_duration']);
 
   Database_Access::getInstance()->addFlight($flight);
  header("Location: ../view/admin2.php");
 }
 elseif(isset($_REQUEST['current_flight_number'])){
 
-  $flightNo = $_REQUEST['current_flight_number'];
+  $flightNo = htmlentities($_REQUEST['current_flight_number']);
 
   $flight = new Flight();
-  $flight->Flight_Number = $_REQUEST['new_flight_number'];
-  $flight->Aircraft_ID = $_REQUEST['new_aircraft_id'];
-  $flight->Departure_IATA_Code = $_REQUEST['new_departure_iata_code'];
-  $flight->Departure_Date = $_REQUEST['new_departure_date'];
-  $flight->Arrival_IATA_Code = $_REQUEST['new_arrival_iata_code'];
-  $flight->Cost = $_REQUEST['new_cost'];
-  $flight->Departure_Time = $_REQUEST['new_departure_time'];
-  $flight->Flight_Duration = $_REQUEST['new_flight_duration'];
+  $flight->Flight_Number = htmlentities($_REQUEST['new_flight_number']);
+  $flight->Aircraft_ID = htmlentities($_REQUEST['new_aircraft_id']);
+  $flight->Departure_IATA_Code = htmlentities($_REQUEST['new_departure_iata_code']);
+  $flight->Departure_Date = htmlentities($_REQUEST['new_departure_date']);
+  $flight->Arrival_IATA_Code = htmlentities($_REQUEST['new_arrival_iata_code']);
+  $flight->Cost = htmlentities($_REQUEST['new_cost']);
+  $flight->Departure_Time = htmlentities($_REQUEST['new_departure_time']);
+  $flight->Flight_Duration = htmlentities($_REQUEST['new_flight_duration']);
 
   Database_Access::getInstance()->updateFlight($flight,$flightNo);
 header("Location: ../view/admin2.php");
 }
 elseif(isset($_REQUEST['delete_flight_number'])){
-  Database_Access::getInstance()->deleteFlight($_REQUEST['delete_flight_number']);
+  Database_Access::getInstance()->deleteFlight(htmlentities($_REQUEST['delete_flight_number']));
   header("Location: ../view/admin2.php");
 }
 ?>

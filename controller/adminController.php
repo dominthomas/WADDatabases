@@ -43,7 +43,7 @@ if(isset($_REQUEST['current_iata'])){
 
 if(isset($_REQUEST['delete_iata'])){
 
-  $delete_iata = $_REQUEST["delete_iata"];
+  $delete_iata = htmlentities($_REQUEST["delete_iata"]);
 
   Database_Access::getInstance()->deleteAirport($delete_iata);
   header('Location: ../view/admin2.php');
