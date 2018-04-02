@@ -141,5 +141,16 @@ class Database_Access{
     $statement =  $this->pdo->prepare("DELETE FROM Airports WHERE IATA_Code = ?");
     $statement->execute([$iata]);
   }
+
+  function checkLogin($customer){
+    $access = false;
+    $statement = $this->pdo->prepare("SELECT FROM Customers WHERE Email_Address = ?");
+    $statement->execute($customer->Email_Address);
+    $result = $statement->fetch(PDO::FETCH_CLASS,"Customer");
+    if($result->Password == $customer->Password){
+      $access = $result;
+    }
+    return $access;
+  }
 }
 ?>
