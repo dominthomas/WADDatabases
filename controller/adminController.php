@@ -57,7 +57,7 @@ if(isset($_REQUEST['email'])){
   $admin->Email_Address = $_REQUEST['email'];
   $admin->Password = $_REQUEST['password'];
   if(Database_Access::adminLogin($admin)){
-    $customer = Database_Access::adminLogin($admin];
+    $customer = Database_Access::adminLogin([$admin]);
     $_SESSION['user'] = $admin;
     echo "You have logged in successfully";
   }
