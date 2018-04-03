@@ -31,14 +31,16 @@
          <ul class="nav navbar-nav navbar-right ">
            <li><a href="index.php">Book</a></li>
            <li class="active"><a href="FlightStatus.php">Status</a></li>
-           
+
 
 
            <li>
              <div class="btn-toolbar">
-                   <button class="btn btn-primary navbar-btn" type="button" action="admin2.php">Admin
+               <a href="admin2.php">
+                   <button class="btn btn-primary navbar-btn" type="button">Admin
                      <span class="glyphicon glyphicon-user"></span>
                    </button>
+                 </a>
             <button class="btn btn-primary navbar-btn dropdown-toggle" type="button"
              data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>
             <span class="caret"></span></button>
@@ -59,7 +61,6 @@
       <div class="panel-heading">
         <ul class="nav nav-pills nav-justified" role="tablist">
         <li class="active"><a href="FlightStatus.php">Upcoming Flights</a></li>
-        <li><a href="Airborne.php">Airborne Flights</a></li>
       </ul>
       </div>
       <div class="panel-body">

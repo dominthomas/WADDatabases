@@ -1,5 +1,5 @@
+<?phpsession_start();?>
 <!DOCTYPE html>
-session_start();
 <html lang="en">
 <head>
   <title>Admin Login</title>
@@ -35,9 +35,11 @@ session_start();
 
            <li>
              <div class="btn-toolbar">
-                   <button class="btn btn-primary navbar-btn" type="button" action="admin2.php">Admin
+               <a href="admin2.php">
+                   <button class="btn btn-primary navbar-btn" type="button">Admin
                      <span class="glyphicon glyphicon-user"></span>
                    </button>
+                 </a>
             <button class="btn btn-primary navbar-btn dropdown-toggle" type="button"
              data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>
             <span class="caret"></span></button>

@@ -35,9 +35,11 @@
 
            <li>
              <div class="btn-toolbar">
-                   <button class="btn btn-primary navbar-btn" type="button" action="admin2.php">Admin
+               <a href="admin2.php">
+                   <button class="btn btn-primary navbar-btn" type="button">Admin
                      <span class="glyphicon glyphicon-user"></span>
                    </button>
+                 </a>
             <button class="btn btn-primary navbar-btn dropdown-toggle" type="button"
              data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>
             <span class="caret"></span></button>
@@ -88,6 +90,12 @@
 					<label class="control-label" for="date"><br/>Departure Date</label>
 					<input class="form-control" name="departure_date"  placeholder="YYYY-MM-DD" type="date"/>
 				</div>
+
+        <div class="form-group"> <!-- Submit button -->
+   <button class="btn btn-primary " name="submit" type="submit">Search</button>
+ </div>
+      </form>
+
 
   </div>
   </div>
