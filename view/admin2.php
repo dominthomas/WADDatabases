@@ -70,7 +70,7 @@
   <div class="tab-content panel-body">
     <div id="addAirports" class="tab-pane fade in active">
       <h3>Add Airports</h3>
-			<form action="../controller/adminController.php" method="post">
+			<form action="../view/admin2.php" method="post">
 				<div class="form-group"> <!-- Date input -->
 					<label class="control-label" for="date"><br/>IATA Code</label>
 					<input class="form-control" id="date" name="iata_code" placeholder="IATA_Code" type="text"/>

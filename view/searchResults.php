@@ -55,59 +55,42 @@
        </div>
      </div>
   </nav>
-<div class="static">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <ul class="nav nav-pills nav-justified" role="tablist">
-        <li class="active"><a href="#">Booking</a></li>
-        <li><a href="FlightTimes.php">Flight Times</a></li>
-        <li><a href="#">My Trips</a></li>
-      </ul>
-      </div>
-
-      <div class="panel-body">
 
 
-<form action = "../controller/flightList.php" method="post">
-        <div class="form-group">
-          <label for="sel1">From</label>
-           <select class="form-control" id="sel1" name="indexDeparture">
-             <option></option>
-      <?php foreach ($airportList as $airport): ?>
-<option value="<?= $airport->IATA_Code ?>" ><?= $airport->Airport_Location ?> (<?= $airport->IATA_Code ?>)</option>
-<?php endforeach ?>
-</select>
-  </div>
-
-    <div class="form-group">
-      <label for="sel2">To</label>
-       <select class="form-control" id="sel2" name ="indexDestination">
-         <option></option>
-  <?php foreach ($airportList as $airport): ?>
-<option value="<?= $airport->IATA_Code ?>"><?= $airport->Airport_Location ?> (<?= $airport->IATA_Code ?>)</option>
-<?php endforeach ?>
-</select>
-
-
-</div>
-
-				<div class="form-group">
-					<label class="control-label" for="date"><br/>Departure Date</label>
-					<input class="form-control" name="indexDate"  placeholder="YYYY-MM-DD" type="date"/>
-				</div>
-
-        <div class="form-group"> <!-- Submit button -->
-   <button class="btn btn-primary " name="submit" type="submit">Search</button>
- </div>
-      </form>
-
-
+  <div class="panel panel-default">
+  <div class="tab-pane">
+      <h3>Flights</h3>
+      <?php if( !empty($flightList)): ?>
+      <table class="table table-bordered">
+        <thead>
+        <th>Flight Number</th>
+        <th>Aircraft ID</th>
+        <th>Departure IATA Code</th>
+        <th>Departure Date</th>
+        <th>Arrival IATA Code</th>
+        <th>Cost</th>
+        <th>Departure Time</th>
+        <th>Flight Duration</th>
+        </thead>
+       <?php foreach ($flightList as $flight): ?>
+        <tr>
+          <td><?=$flight->Flight_Number?></td>
+          <td><?=$flight->Aircraft_ID?></td>
+          <td><?=$flight->Departure_IATA_Code?></td>
+          <td><?=$flight->Departure_Date?></td>
+          <td><?=$flight->Arrival_IATA_Code?></td>
+          <td><?=$flight->Cost?></td>
+          <td><?=$flight->Departure_Time?></td>
+          <td><?=$flight->Flight_Duration?></td>
+        </tr>
+      <?php endforeach ?>
+    </table>
+  <?php endif ?>
   </div>
   </div>
 
 
-  </div>
-  </div>
+
+
 
 </body>
-</html>

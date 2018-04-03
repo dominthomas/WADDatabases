@@ -2,7 +2,9 @@
 require_once "../model/Flight.php";
 require_once "../model/Database_Access.php";
 
-//$getflightList = Database_Access::getInstance()->getAllFlights();
+
+
+
 
 if (!isset($_REQUEST['search'])||$_REQUEST['search']==""){
   $flightList = Database_Access::getInstance()->getAllFlights();
@@ -50,6 +52,80 @@ else{
   }
 }
 
+
+
+
+
+
+
+
+/*
+if ( !empty($_REQUEST['indexDeparture'])  &&  !empty($_REQUEST['indexDestination'])
+ &&  !empty($_REQUEST['indexDate']) ){
+
+  $flightsearch = new Flight();
+  $flightsearch->Departure_IATA_Code = htmlentities($_REQUEST['indexDeparture']);
+  $flightsearch->Arrival_IATA_Code = htmlentities($_REQUEST['indexDestination']);
+  $flightsearch->Departure_Date = htmlentities($_REQUEST['indexDate']);
+  $flightList = Database_Access::getInstance()->getFlightsByAll($flightsearch);
+  header("Location: ../view/searchResults.php");
+}
+
+elseif(isset($_REQUEST['indexDeparture'])){
+  $search = $_REQUEST['indexDeparture'];
+  $flightList = Database_Access::getInstance()->getFlightsByDepartureAirport($search);
+  header("Location: ../view/searchResults.php");
+
+}
+
+  elseif(isset($_REQUEST['indexDestination'])){
+    $search = $_REQUEST['indexDestination'];
+    $flightList = Database_Access::getInstance()->getFlightsByDestination($search);
+    header("Location: ../view/searchResults.php");
+  }
+
+  elseif(isset($_REQUEST['indexDate'])){
+    $search = $_REQUEST['indexDate'];
+    $flightList = Database_Access::getInstance()->getFlightsByDate($search);
+    header("Location: ../view/searchResults.php");
+
+  }
+
+*/
+
+  /*
+  elseif($_REQUEST['option']==4){
+    $search = $_REQUEST['search'];
+    if(!strcasecmp($search, "monday")){
+      $search = 0;
+    }
+    elseif(!strcasecmp($search, "tuesday")){
+      $search = 1;
+    }
+    elseif(!strcasecmp($search, "wednesday")){
+      $search = 2;
+    }
+    elseif(!strcasecmp($search, "thursday")){
+      $search = 3;
+    }
+    elseif(!strcasecmp($search, "friday")){
+      $search = 4;
+    }
+    elseif(!strcasecmp($search, "saturday")){
+      $search = 5;
+    }
+    else{
+      $search = 6;
+    }
+    $flightList = Database_Access::getInstance()->getFlightsByDay($search);
+  }
+
+  else{
+    $flightList = Database_Access::getInstance()->getAllFlights();
+    //header("Location: ../view/searchResults.php");
+  }
+  */
+
 if(isset($_REQUEST['flight_number'])){
   $flight = new Flight();
   $flight->Flight_Number = htmlentities($_REQUEST['flight_number']);
@@ -64,6 +140,8 @@ if(isset($_REQUEST['flight_number'])){
   Database_Access::getInstance()->addFlight($flight);
  header("Location: ../view/admin2.php");
 }
+
+
 elseif(isset($_REQUEST['current_flight_number'])){
 
   $flightNo = htmlentities($_REQUEST['current_flight_number']);
@@ -81,12 +159,9 @@ elseif(isset($_REQUEST['current_flight_number'])){
   Database_Access::getInstance()->updateFlight($flight,$flightNo);
 header("Location: ../view/admin2.php");
 }
+
+
 elseif(isset($_REQUEST['delete_flight_number'])){
   Database_Access::getInstance()->deleteFlight(htmlentities($_REQUEST['delete_flight_number']));
   header("Location: ../view/admin2.php");
 }
-
-if (!empty($_REQUEST['indexDeparture']) &&  !empty(($_REQUEST(['indexDestination']))) && !empty(($_REQUEST(['indexDate']))) ){
-  header("Location: ../view/admin2.php");
-}
-?>

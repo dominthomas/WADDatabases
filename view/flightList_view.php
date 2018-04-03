@@ -29,7 +29,6 @@
             <td><?= $flight->Departure_IATA_Code ?></td>
             <td><?= $flight->Arrival_IATA_Code?></td>
             <td><?= $flight->Departure_Date ?></td>
-            <td><?= $flight->journey() ?></td>
           </tr>
         <?php endforeach ?>
       </table>
