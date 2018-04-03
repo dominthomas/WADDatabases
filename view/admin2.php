@@ -35,7 +35,7 @@
            <li><a href="FlightStatus.php">Status</a></li>
            <li>
              <div class="btn-toolbar">
-                   <button class="btn btn-primary navbar-btn" type="button" action="admin.php">Admin
+                   <button class="btn btn-primary navbar-btn" type="button" action="admin2.php">Admin
 										 <span class="glyphicon glyphicon-user"></span>
                    </button>
             <button class="btn btn-primary navbar-btn dropdown-toggle" type="button"

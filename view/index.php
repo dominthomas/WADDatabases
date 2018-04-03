@@ -31,12 +31,11 @@
          <ul class="nav navbar-nav navbar-right ">
            <li class="active"><a href="index.php">Book</a></li>
            <li><a href="FlightStatus.php">Status</a></li>
-           <li><a href="#">Discover</a></li>
 
 
            <li>
              <div class="btn-toolbar">
-                   <button class="btn btn-primary navbar-btn" type="button">Login
+                   <button class="btn btn-primary navbar-btn" type="button" action="admin2.php">Admin
                      <span class="glyphicon glyphicon-user"></span>
                    </button>
             <button class="btn btn-primary navbar-btn dropdown-toggle" type="button"
@@ -54,7 +53,6 @@
      </div>
   </nav>
 <div class="static">
-  <div class ="container">
     <div class="panel panel-default">
       <div class="panel-heading">
         <ul class="nav nav-pills nav-justified" role="tablist">
@@ -86,44 +84,14 @@
 </select>
 </div>
 
-<div class="bootstrap-iso">
- <div class="container-fluid">
-  <div class="row">
-   <div class="col-md-6 col-sm-6 col-xs-12">
-
-      <div class="form-group"> <!-- Date input -->
-        <label class="control-label" for="date">Date</label>
-        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
-      </div>
-      <div class="form-group"> <!-- Submit button -->
-        <button class="btn btn-primary " name="submit" type="submit">Search</button>
-      </div>
-
-     </form>
-     <!-- Form ends -->
-
-    </div>
-  </div>
- </div>
-</div>
+				<div class="form-group">
+					<label class="control-label" for="date"><br/>Departure Date</label>
+					<input class="form-control" name="departure_date"  placeholder="YYYY-MM-DD" type="date"/>
+				</div>
 
   </div>
   </div>
-</div>
   </div>
 
 </body>
-<script>
-    $(document).ready(function(){
-      var date_input=$('input[name="date"]'); //our date input has the name "date"
-      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-      var options={
-        format: 'mm/dd/yyyy',
-        container: container,
-        todayHighlight: true,
-        autoclose: true,
-      };
-      date_input.datepicker(options);
-    })
-</script>
 </html>
