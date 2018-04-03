@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php require_once "../controller/airportList.php" ?>
+<?php require_once "../controller/adminController.php"?>
+<?php require_once "../controller/getFlightList.php"?>
 <head>
   <title>Booking</title>
   <meta charset="utf-8">
@@ -96,6 +98,38 @@
  </div>
       </form>
 
+
+  </div>
+  </div>
+
+  <div class="panel panel-default">
+  <div class="tab-pane">
+  		<h3>Flights</h3>
+  		<table class="table table-bordered">
+  			<thead>
+  				<th>Flight Number</th>
+  			<th>Aircraft ID</th>
+  			<th>Departure IATA Code</th>
+  			<th>Departure Date</th>
+  			<th>Arrival IATA Code</th>
+  			<th>Cost</th>
+  			<th>Departure Time</th>
+  			<th>Flight Duration</th>
+  			</thead>
+  		 <?php foreach ($getFlightList as $flight): ?>
+  			<tr>
+  				<td><?=$flight->Flight_Number?></td>
+  				<td><?=$flight->Aircraft_ID?></td>
+  				<td><?=$flight->Departure_IATA_Code?></td>
+  				<td><?=$flight->Departure_Date?></td>
+  				<td><?=$flight->Arrival_IATA_Code?></td>
+  				<td><?=$flight->Cost?></td>
+  				<td><?=$flight->Departure_Time?></td>
+  				<td><?=$flight->Flight_Duration?></td>
+  			</tr>
+  			<?php endforeach ?>
+  	</table>
+  </div>
 
   </div>
   </div>

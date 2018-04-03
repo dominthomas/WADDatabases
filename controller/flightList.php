@@ -85,4 +85,9 @@ elseif(isset($_REQUEST['delete_flight_number'])){
   Database_Access::getInstance()->deleteFlight(htmlentities($_REQUEST['delete_flight_number']));
   header("Location: ../view/admin2.php");
 }
+
+
+if(isset($_REQUEST['indexDeparture']&&['indexDestination']&&['indexDate'])){
+  header("Location: ../view/admin2.php");
+}
 ?>
