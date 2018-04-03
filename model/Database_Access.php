@@ -142,12 +142,23 @@ class Database_Access{
     $statement->execute([$iata]);
   }
 
-  function checkLogin($customer){
+  function customerLogin($customer){
     $access = false;
     $statement = $this->pdo->prepare("SELECT FROM Customers WHERE Email_Address = ?");
     $statement->execute($customer->Email_Address);
     $result = $statement->fetch(PDO::FETCH_CLASS,"Customer");
     if($result->Password == $customer->Password){
+      $access = $result;
+    }
+    return $access;
+  }
+
+  function adminLogin($admin){
+    $access = false;
+    $statement = $this->pdo->prepare("SELECT FROM Customers WHERE Email_Address = ?");
+    $statement->execute($admin->Email_Address);
+    $result = $statement->fetch(PDO::FETCH_CLASS,"Admin");
+    if($result->Password == $admin->Password){
       $access = $result;
     }
     return $access;

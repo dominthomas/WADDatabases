@@ -1,7 +1,7 @@
 <?php
 require_once "../model/Database_Access.php";
 require_once "../model/Airport.php";
-
+require_once "../model/Admin.php";
 
 if(isset($_REQUEST["iata_code"])){
 
@@ -48,5 +48,21 @@ if(isset($_REQUEST['delete_iata'])){
   Database_Access::getInstance()->deleteAirport($delete_iata);
   header('Location: ../view/admin2.php');
 
+}
+
+
+/*Create Admin object*/
+if(isset($_REQUEST['email'])){
+  $admin = new Admin();
+  $admin->Email_Address = $_REQUEST['email'];
+  $admin->Password = $_REQUEST['password'];
+  if(Database_Access::adminLogin($admin)){
+    $customer = Database_Access::adminLogin($admin];
+    $_SESSION['user'] = $admin;
+    echo "You have logged in successfully";
+  }
+  else{
+    echo "Your password or email is incorrect";
+  }
 }
 ?>
