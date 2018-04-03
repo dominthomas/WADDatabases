@@ -86,8 +86,7 @@ elseif(isset($_REQUEST['delete_flight_number'])){
   header("Location: ../view/admin2.php");
 }
 
-
-if(isset($_REQUEST['indexDeparture']&&['indexDestination']&&['indexDate'])){
+if (!empty($_REQUEST['indexDeparture']) &&  !empty(($_REQUEST(['indexDestination']))) && !empty(($_REQUEST(['indexDate']))) ){
   header("Location: ../view/admin2.php");
 }
 ?>

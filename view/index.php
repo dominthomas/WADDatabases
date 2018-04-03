@@ -72,7 +72,7 @@
 <form action = "../controller/flightList.php" method="post">
         <div class="form-group">
           <label for="sel1">From</label>
-           <select class="form-control" id="sel1" name="option">
+           <select class="form-control" id="sel1" name="indexDeparture">
       <?php foreach ($airportList as $airport): ?>
 <option><?= $airport->Airport_Location ?> (<strong><?= $airport->IATA_Code ?></strong>)</option>
 <?php endforeach ?>
@@ -81,7 +81,7 @@
 
     <div class="form-group">
       <label for="sel2">To</label>
-       <select class="form-control" id="sel2" name ="search">
+       <select class="form-control" id="sel2" name ="indexDestination">
   <?php foreach ($airportList as $airport): ?>
 <option><?= $airport->Airport_Location ?> (<strong><?= $airport->IATA_Code ?></strong>)</option>
 <?php endforeach ?>
@@ -90,7 +90,7 @@
 
 				<div class="form-group">
 					<label class="control-label" for="date"><br/>Departure Date</label>
-					<input class="form-control" name="departure_date"  placeholder="YYYY-MM-DD" type="date"/>
+					<input class="form-control" name="indexDate"  placeholder="YYYY-MM-DD" type="date"/>
 				</div>
 
         <div class="form-group"> <!-- Submit button -->
@@ -102,6 +102,7 @@
   </div>
   </div>
 
+<?php ?>
   <div class="panel panel-default">
   <div class="tab-pane">
   		<h3>Flights</h3>
@@ -130,8 +131,8 @@
   			<?php endforeach ?>
   	</table>
   </div>
-
   </div>
+  <?php ?>
   </div>
   </div>
 
