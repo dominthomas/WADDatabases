@@ -1,10 +1,11 @@
 <?php
 require_once "../model/Flight.php";
 require_once "../model/Database_Access.php";
+require_once "../model/Airport.php";
 
 
 
-
+$airportList= Database_Access::getInstance()->getAllAirports();
 
   /*if (!empty($_POST['indexDeparture']) && !empty($_POST['indexDestination']) && !empty($_POST['indexDate'])){
      // all input fields are NOT empty... do stuff with this
@@ -25,19 +26,39 @@ if (!isset($_REQUEST['search'])||$_REQUEST['search']==""){
 }
 else{
   if($_REQUEST['option']==1){
-    $search = $_REQUEST['search'];
+    $search = htmlentities($_REQUEST['search']);
     $flightList = Database_Access::getInstance()->getFlightsByDate($search);
   }
   elseif($_REQUEST['option']==2){
-    $search = $_REQUEST['search'];
-    $flightList = Database_Access::getInstance()->getFlightsByDestination($search);
+
+    $search = htmlentities($_REQUEST['search']);
+    if(strlen($search) == 3 ) {
+    $flightList = Database_Access::getInstance()->getFlightsByDestination($search);}
+  else{
+    foreach($airportList as $airport){
+    if(strcasecmp($search, $airport->Airport_Location) == 0) {
+    $search = strtolower($airport->IATA_Code);
+    $flightList = Database_Access::getInstance()->getFlightsByDestination($search);}
   }
+  }
+  }
+
+
   elseif($_REQUEST['option']==3){
-    $search = $_REQUEST['search'];
+    $search = htmlentities($_REQUEST['search']);
+    if(strlen($search) == 3 ) {
     $flightList = Database_Access::getInstance()->getFlightsByDepartureAirport($search);
   }
+  else{
+    foreach($airportList as $airport){
+    if(strcasecmp($search, $airport->Airport_Location) == 0) {
+    $search = strtolower($airport->IATA_Code);
+    $flightList = Database_Access::getInstance()->getFlightsByDepartureAirport($search);}
+  }
+  }
+}
   elseif($_REQUEST['option']==4){
-    $search = $_REQUEST['search'];
+    $search = htmlentities($_REQUEST['search']);
     if(!strcasecmp($search, "monday")){
       $search = 0;
     }
@@ -92,7 +113,7 @@ elseif(isset($_REQUEST['indexDeparture'])){
 
   /*
   elseif($_REQUEST['option']==4){
-    $search = $_REQUEST['search'];
+    $search = htmlentities($_REQUEST['search']);
     if(!strcasecmp($search, "monday")){
       $search = 0;
     }

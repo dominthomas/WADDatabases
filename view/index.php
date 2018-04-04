@@ -1,7 +1,6 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once "../controller/airportList.php" ?>
 <?php require_once "../controller/flightList.php" ?>
 <head>
   <title>Booking</title>
@@ -108,16 +107,19 @@
         </thead>
          <form action="../view/index.php" method="post">
        <?php foreach ($flightList as $flight): ?>
-         <?php foreach ($airportList as $airport): ?>
          <div class="form-group">
         <tr>
+          <?php foreach ($airportList as $airport): ?>
+             <?php if($airport->IATA_Code == $flight->Departure_IATA_Code){
+             $airport1 = $airport->Airport_Location;}
+             if($airport->IATA_Code == $flight->Arrival_IATA_Code){
+             $airport2 = $airport->Airport_Location;}?>
+               <?php endforeach ?>
           <td><?=$flight->Flight_Number?></td>
           <td><?=$flight->Aircraft_ID?></td>
-          <td><?=$flight->Departure_IATA_Code?></td> STN and Stansted!
+          <td><?=$airport1?> (<?=$flight->Departure_IATA_Code?>)</td>
           <td><?=$flight->Departure_Date?></td>
-          <td><?= if($airport->IATA_Code == $flight->Arrival_IATA_Code) {
-            $arrival = $airport->Airport_Location;
-          }?><?=$arrival?> (<?=$flight->Arrival_IATA_Code?>)</td>
+          <td><?=$airport2?> (<?=$flight->Arrival_IATA_Code?>)</td>
           <td><?=$flight->Cost?></td>
           <td><?=$flight->Departure_Time?></td>
           <td><?=$flight->Flight_Duration?></td>

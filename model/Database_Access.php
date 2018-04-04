@@ -80,18 +80,33 @@ class Database_Access{
   }
 
   function getFlightsByDestination($search){
+    $search = strtolower($search);
     $statement = $this->pdo->prepare("SELECT * FROM Flights WHERE Arrival_IATA_Code = ?");
     $statement->execute([$search]);
     $results = $statement->fetchAll(PDO::FETCH_CLASS,"Flight");
     return $results;
-  }
+}
+
 
   function getFlightsByDepartureAirport($search){
+  if(str_word_count($search) > 3 ) {
+  foreach($airportList as $airport){
+  if(strcasecmp($search, $airport->Airport_Location) == 0) {
+    $search = $airport->IATA_Code;
+    $statement = $this->pdo->prepare("SELECT * FROM Flights WHERE Departure_IATA_Code = ?");
+    $staement->execute([$search]);
+    $results = $statement->fetchAll(PDO::FETCH_CLASS,"Flight");
+    return $results;
+  }
+}
+} else{
+    $search = strtolower($search);
     $statement = $this->pdo->prepare("SELECT * FROM Flights WHERE Departure_IATA_Code = ?");
     $statement->execute([$search]);
     $results = $statement->fetchAll(PDO::FETCH_CLASS,"Flight");
     return $results;
   }
+}
 
   function getFlightsByDay($search){
     $statement = $this->pdo->prepare("SELECT * FROM Flights WHERE  WEEKDAY(Departure_Date) = ?");
