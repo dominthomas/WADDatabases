@@ -6,6 +6,20 @@ require_once "../model/Database_Access.php";
 
 
 
+  /*if (!empty($_POST['indexDeparture']) && !empty($_POST['indexDestination']) && !empty($_POST['indexDate'])){
+     // all input fields are NOT empty... do stuff with this
+
+   //$flightsearch = new Flight();
+      $departure = htmlentities($_POST['indexDeparture']);
+      $destination = htmlentities($_POST['indexDestination']);
+      $date = htmlentities($_POST['indexDate']);
+
+      $flightList = Database_Access::getInstance()->getFlightsByAll($departure, $destination, $date);
+      header("Location: ../view/searchResults.php");
+    }
+
+*/
+
 if (!isset($_REQUEST['search'])||$_REQUEST['search']==""){
   $flightList = Database_Access::getInstance()->getAllFlights();
 }
@@ -53,24 +67,7 @@ else{
 }
 
 
-
-
-
-
-
-
 /*
-if ( !empty($_REQUEST['indexDeparture'])  &&  !empty($_REQUEST['indexDestination'])
- &&  !empty($_REQUEST['indexDate']) ){
-
-  $flightsearch = new Flight();
-  $flightsearch->Departure_IATA_Code = htmlentities($_REQUEST['indexDeparture']);
-  $flightsearch->Arrival_IATA_Code = htmlentities($_REQUEST['indexDestination']);
-  $flightsearch->Departure_Date = htmlentities($_REQUEST['indexDate']);
-  $flightList = Database_Access::getInstance()->getFlightsByAll($flightsearch);
-  header("Location: ../view/searchResults.php");
-}
-
 elseif(isset($_REQUEST['indexDeparture'])){
   $search = $_REQUEST['indexDeparture'];
   $flightList = Database_Access::getInstance()->getFlightsByDepartureAirport($search);
