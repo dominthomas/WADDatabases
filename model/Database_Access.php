@@ -145,8 +145,8 @@ class Database_Access{
 
   function customerLogin($customer){
     $access = false;
-    $statement = $this->pdo->prepare("SELECT FROM Customers WHERE Email_Address = ?");
-    $statement->execute($customer->Email_Address);
+    $statement = $this->pdo->prepare("SELECT * FROM Customers WHERE Email_Address = ?");
+    $statement->execute([$customer->Email_Address]);
     $result = $statement->fetch(PDO::FETCH_CLASS,"Customer");
     if($result->Password == $customer->Password){
       $access = $result;
@@ -156,8 +156,8 @@ class Database_Access{
 
   function adminLogin($admin){
     $access = false;
-    $statement = $this->pdo->prepare("SELECT FROM Customers WHERE Email_Address = ?");
-    $statement->execute($admin->Email_Address);
+    $statement = $this->pdo->prepare("SELECT * FROM Customers WHERE Email_Address = ?");
+    $statement->execute([$admin->Email_Address]);
     $result = $statement->fetch(PDO::FETCH_CLASS,"Admin");
     if($result->Password == $admin->Password){
       $access = $result;

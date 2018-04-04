@@ -7,8 +7,8 @@ if(isset($_REQUEST['email'])){
   $customer = new Customer();
   $customer->Email_Address = $_REQUEST['email'];
   $customer->Password = $_REQUEST['password'];
-  if(Database_Access::customerLogin($customer)){
-    $customer = Database_Access::customerLogin([$customer]);
+  if(Database_Access::getInstance()->customerLogin($customer)){
+    $customer = Database_Access::getInstance()->customerLogin([$customer]);
     $_SESSION['user'] = $customer;
     echo "You have logged in successfully";
   }

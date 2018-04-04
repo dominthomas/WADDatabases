@@ -1,6 +1,7 @@
 <?php
 require_once "../model/Basket.php";
 require_once "../model/Flight.php";
+require_once "../controller/flightList.php";
 
 $basket = new Basket();
 
