@@ -66,47 +66,71 @@
       </div>
 
       <div class="panel-body">
-
-
-<form action = "../controller/flightList.php" method="post">
+        <form action="index.php" method="get">
+          <div class="form-group">
+            <label>Select search method:</label>
+          <select class="form-control" name="option">
+            <option value="1">Departure Date</option>
+            <option value="2">Destination Airport</option>
+            <option value="3">Departure Airport</option>
+            <option value="4">Day of the Week</option>
+          </select>
+        </div>
         <div class="form-group">
-          <label for="sel1">From</label>
-           <select class="form-control" id="sel1" name="indexDeparture">
-             <option></option>
-      <?php foreach ($airportList as $airport): ?>
-<option value="<?= $airport->IATA_Code ?>" ><?= $airport->Airport_Location ?> (<?= $airport->IATA_Code ?>)</option>
-<?php endforeach ?>
-</select>
+          <label class="control-labe" for="search"><br/>Search available flights:</label>
+          <input class="form-control" type="text" name="search" placeholder=" if entering date, follow format YYYY-MM-DD"/>
+      </div>
+      <div class="form-group">
+          <button class="btn btn-primary" type="submit" value="Search">Search</button>
+      </div>
+    </form>
   </div>
 
-    <div class="form-group">
-      <label for="sel2">To</label>
-       <select class="form-control" id="sel2" name ="indexDestination">
-         <option></option>
-  <?php foreach ($airportList as $airport): ?>
-<option value="<?= $airport->IATA_Code ?>"><?= $airport->Airport_Location ?> (<?= $airport->IATA_Code ?>)</option>
-<?php endforeach ?>
-</select>
-
-
-</div>
-
-				<div class="form-group">
-					<label class="control-label" for="date"><br/>Departure Date</label>
-					<input class="form-control" name="indexDate"  placeholder="YYYY-MM-DD" type="date"/>
-				</div>
-
-        <div class="form-group"> <!-- Submit button -->
-   <button class="btn btn-primary " name="submit" type="submit">Search</button>
- </div>
-      </form>
-
-
-  </div>
   </div>
 
 
   </div>
+
+  <div class="panel panel-default">
+  <div class="tab-pane">
+      <h3>Flights</h3>
+      <table class="table table-bordered">
+        <thead>
+        <th>Flight Number</th>
+        <th>Aircraft ID</th>
+        <th>Departure IATA Code</th>
+        <th>Departure Date</th>
+        <th>Arrival IATA Code</th>
+        <th>Cost</th>
+        <th>Departure Time</th>
+        <th>Flight Duration</th>
+        <th>Add Flight</th>
+        </thead>
+         <form action="../view/index.php" method="post">
+       <?php foreach ($flightList as $flight): ?>
+         <?php foreach ($airportList as $airport): ?>
+         <div class="form-group">
+        <tr>
+          <td><?=$flight->Flight_Number?></td>
+          <td><?=$flight->Aircraft_ID?></td>
+          <td><?=$flight->Departure_IATA_Code?></td> STN and Stansted!
+          <td><?=$flight->Departure_Date?></td>
+          <td><?= if($airport->IATA_Code == $flight->Arrival_IATA_Code) {
+            $arrival = $airport->Airport_Location;
+          }?><?=$arrival?> (<?=$flight->Arrival_IATA_Code?>)</td>
+          <td><?=$flight->Cost?></td>
+          <td><?=$flight->Departure_Time?></td>
+          <td><?=$flight->Flight_Duration?></td>
+          <td><button class=" btn btn-primary" type="submit" name="addFlight" value=<?=$flight->Flight_Number ?> > Add to Basket </buton></td>
+        </tr>
+      </div>
+    <?php endforeach ?>
+    </table>
+  </form>
+  </div>
+  </div>
+
+
   </div>
 
 </body>
