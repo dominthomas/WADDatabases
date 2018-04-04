@@ -164,7 +164,7 @@ class Database_Access{
     $access = false;
     $statement = $this->pdo->prepare("SELECT * FROM Customers WHERE Email_Address = ?");
     $statement->execute([$customer->Email_Address]);
-    $result = $statement->fetch(PDO::FETCH_CLASS,"Customer");
+    $result = $statement->fetchObject(PDO::FETCH_CLASS,"Customer");
     if($result->Password == $customer->Password){
       $access = $result;
     }
