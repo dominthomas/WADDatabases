@@ -25,7 +25,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         </button>
-      <a class="navbar-brand" href="#">Fly Guys</a>
+      <a class="navbar-brand" href="index.php">Fly Guys</a>
        </div>
        <div class="collapse navbar-collapse" id="myNavBar">
          <ul class="nav navbar-nav navbar-right ">
@@ -44,7 +44,7 @@
              data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Empty Basket</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="basketview.php">Basket</a></li>
               <li role="presentation" class="divider"></li>
               <li role="presentation"><a role="menuitem" tabindex="-1" href="UserLogin.php"><strong>Sign in</Strong> </a></li>
             </ul>
