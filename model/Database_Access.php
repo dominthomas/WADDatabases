@@ -158,15 +158,13 @@ class Database_Access{
   }
 
 
-  function adminLogin($customer){
-    $access = "";
-    $statement = $this->pdo->prepare("SELECT * FROM Customers WHERE  Email_Address = ?");
-    $statement->execute([$customer->Email_Address]);
-    $result = $statement->fetchAll(PDO::FETCH_CLASS,"Customer")[0];
-    if($result->Password == $customer->Password){
-      $access = $result;
+  function adminLogin($admin){
+    $statement = $this->pdo->prepare("SELECT * FROM Employee_Admins WHERE  Email_Address = ?");
+    $statement->execute([$admin->Email_Address]);
+    if(!empty($statement->fetchAll(PDO::FETCH_CLASS,"Employee_Admin"))){$result = $statement->fetchAll(PDO::FETCH_CLASS,"Employee_Admin")[0];}
+    if(!empty($result) && $result->Password == $admin->Password){
+      return $result;
     }
-    return $access;
   }
 }
 ?>
