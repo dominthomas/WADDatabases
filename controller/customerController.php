@@ -1,19 +1,22 @@
 <?php
 require_once "../model/Database_Access.php";
-require_once "../model/Customer.php";
+session_start();
 
-/*Create customer object and pass it through the customer login*/
-if(isset($_REQUEST['email'])){
+if(!empty($_REQUEST['email']) && !empty($_REQUEST['password'])){
   $customer = new Customer();
   $customer->Email_Address = $_REQUEST['email'];
   $customer->Password = $_REQUEST['password'];
-  if(Database_Access::getInstance()->customerLogin($customer)){
-    $customer = Database_Access::getInstance()->customerLogin([$customer]);
-    $_SESSION['user'] = $customer;
-    echo "You have logged in successfully";
+  if(!empty(Database_Access::getInstance()->customerLogin($customer))){
+    $_SESSION['user'] = Database_Access::getInstance()->customerLogin($customer);
+    echo "Login Successful";
   }
   else{
-    echo "Your password or email is incorrect";
+    echo "Login Failed";
   }
+}
+
+if(isset($_REQUEST['logout'])){
+  unset($_SESSION['user']);
+  echo "Logout Successful";
 }
 ?>
