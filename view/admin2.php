@@ -34,19 +34,12 @@
            <li><a href="index.php">Book</a></li>
            <li><a href="FlightStatus.php">Status</a></li>
            <li>
-             <div class="btn-toolbar">
-							 <a href="admin2.php">
-									 <button class="btn btn-primary navbar-btn" type="button">Admin
-										 <span class="glyphicon glyphicon-user"></span>
-									 </button>
-								 </a>
             <button class="btn btn-primary navbar-btn dropdown-toggle" type="button"
-             data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>
+             data-toggle="dropdown">Admin<span class="glyphicon glyphicon-user"></span>
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Empty Basket</a></li>
-              <li role="presentation" class="divider"></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="UserLogin.php"><strong>Sign in</Strong> </a></li>
+              <li><a role="menuitem" tabindex="-1" href="admin2.php"><strong>Admin Home</Strong> </a></li>
+              <li><a role="menuitem" tabindex="-1" href="UserLogin.php"><strong>Log out</Strong> </a></li>
             </ul>
             </div>
           </li>
