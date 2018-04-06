@@ -1,14 +1,11 @@
-<?php session_start();?>
+<?php
+require_once "../controller/customerController.php";
+if(isset($_SESSION['user'])){
+  $customer = $_SESSION['user'];
+}
+?>
 <!DOCTYPE HTML>
 <html>
-<?php
-  require_once "../model/requireAllModels.php";
-  require_once "../controller/customerController.php";
-  $customer;
-  if(isset($_REQUEST['user'])){
-    $customer = $_REQUEST['user'];
-  }
-?>
   <head>
     <title>Customer login</title>
   </head>
@@ -16,10 +13,14 @@
     <?php if(isset($customer)):?>
       <p>Hello <?=$customer->First_Name?> <?=$customer->Last_Name?></p>
     <?php endif ?>
-    <form action="../view/customerLogin.php">
+    <form action="../controller/customerController.php" method="post">
       <input type="text" name="email"/>
       <input type="password" name="password"/>
       <input type="submit" value="login"/>
     </form>
+  <form action="../controller/customerController.php" method="post"/>
+    <input type="hidden" name="logout" value="hidden"/>
+    <input type="submit" value="logout"/>
+  </form>
   </body>
 </html>
