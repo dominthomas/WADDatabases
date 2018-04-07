@@ -16,6 +16,7 @@ $(document).ready(function(){
       $(".form-message").load("../controller/basketController.php", {
         deleteFlight: deleteFlight
       });
+      $("form").load(location.href+" form>*","");
 
     });
 });

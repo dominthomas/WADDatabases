@@ -8,6 +8,7 @@ $email_err = $password_err = $confirm_password_err = $admin_key_err ="";
 
 
 // Processing form data when form is submitted
+if(isset($_SERVER["emailSignUp"])){
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Validate email
@@ -51,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
      else{
         $admin_key = htmlentities(trim($_REQUEST['adminkey']));
         $admin_key_results= Database_Access::getInstance()->getAdminKey($admin_key);
-        if (strcasecmp($admin_key_results->Admin_Key) == 0 ){
+        if (strcasecmp($admin_key_results->Admin_Key,$admin_key) == 0 ){
           $admin_key_err = "";
 
           if(empty($email_err) && empty($password_err) && empty($confirm_password_err) && empty($admin_key_err)){
@@ -67,9 +68,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               }
         }
         else{
-          $admin_key_err = "Wrond admin key!";
+          $admin_key_err = "Wrong admin key!";
         }
     }
+}
 }
 // admin register finishes.
 
@@ -79,11 +81,12 @@ $email = $password = "";
 $email_err= $password_err = "";
 
 // Processing form data when form is submitted
+if(isset($_REQUEST["email"])){
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-    // Check if username is empty
+    // Check if email is empty
     if(empty(trim($_REQUEST["email"]))){
-        $email_err = 'Please enter username.';
+        $email_err = 'Please enter email.';
     }
 
     // Check if password is empty
@@ -115,6 +118,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 }
 
+}
 }
 
 if(isset($_REQUEST['logOut'])){
