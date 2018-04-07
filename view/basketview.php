@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <?php require_once "../controller/basketController.php" ?>
@@ -14,7 +15,7 @@
   <script src="bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
   <link rel="stylesheet" href="bootstrap-datepicker-master/dist/css/bootstrap-datepicker3.css">
   <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
-  <script src="js/ajax.js"></script>
+
 </head>
 <body>
   <nav class="navbar navbar-inverse">
@@ -57,7 +58,6 @@
   <div class="panel panel-default">
   <div class="tab-pane">
       <h3>Your Basket</h3>
-      <button class="btn btn-primary" value="Checkout" name="checkoutButton">Checkout</button>
       <table class="table table-bordered">
         <thead>
         <th>Flight Number</th>
@@ -92,7 +92,7 @@
           <td><?=$flight->Cost?></td>
           <td><?=$flight->Departure_Time?></td>
           <td><?=$flight->Flight_Duration?></td>
-          <td><button class="delete btn btn-primary" type="submit" name="deleteFlight" value=<?=$flight->Flight_Number ?> > Delete Flight </buton></td>
+          <td><button class=" btn btn-primary" type="submit" name="deleteFlight" value=<?=$flight->Flight_Number ?> > Delete Flight </buton></td>
         </tr>
       </div>
   <?php endif ?>
@@ -102,8 +102,7 @@
     </table>
   </form>
   </div>
-
   </div>
-  <div id="snackbar"><div class="form-message"></div></div>
+
 </body>
 </html>

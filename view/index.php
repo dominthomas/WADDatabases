@@ -14,6 +14,7 @@
   <script src="bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
   <link rel="stylesheet" href="bootstrap-datepicker-master/dist/css/bootstrap-datepicker3.css">
   <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
+  <script src="js/ajax.js"></script>
 
 </head>
 <body>
@@ -122,7 +123,7 @@
           <td><?=$flight->Cost?></td>
           <td><?=$flight->Departure_Time?></td>
           <td><?=$flight->Flight_Duration?></td>
-          <td><button class=" btn btn-primary" type="submit" name="addFlight" value=<?=$flight->Flight_Number ?> > Add to Basket </buton></td>
+          <td><button class="add btn btn-primary" type="submit" name="addFlight" value=<?=$flight->Flight_Number ?> > Add to Basket </buton></td>
         </tr>
       </div>
     <?php endforeach ?>
@@ -133,6 +134,6 @@
 
 
   </div>
-
+  <div id="snackbar"><div class="form-message">ff</div></div>
 </body>
 </html>
