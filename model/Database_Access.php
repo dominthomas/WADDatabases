@@ -154,7 +154,8 @@ class Database_Access{
     $result =$statement->fetchAll(PDO::FETCH_CLASS,"Customer")[0];
     if(!empty($result) && $result->Password == $customer->Password){
       return $result;
-    }
+    }}
+
 
     function addAdmin($admin){
     $statement = $this->pdo->prepare("INSERT INTO Employee_Admins (Email_Address, Password), VALUES(?,?)");
@@ -176,5 +177,4 @@ class Database_Access{
     return $results;
    }
   }
-}
 ?>

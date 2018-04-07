@@ -9,18 +9,20 @@ $email_err = $password_err = $confirm_password_err = $admin_key_err ="";
 
 // Processing form data when form is submitted
 if(isset($_SERVER["emailSignUp"])){
-if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Validate email
     if(empty(trim($_REQUEST["emailSignUp"]))){
         $email_err = "Please enter a email.";
+        header("Location: ../view/AdminLogin.php");
     } else{
 
         $admin = new Admin();
         $admin->Email_Address= htmlentities(trim($_REQUEST["emailSignUp"]));
         $admin_results= Database_Access::getInstance()->getAdminByEmail($admin);
+
         if($admin_results->rowCount() == 1){
           $email_err = "Email already exists";
+          header("Location: ../view/AdminLogin.php");
         }
         else{
           $emailSignUp = htmlentities(trim($_REQUEST["emailSignUp"]));
@@ -30,8 +32,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate password
     if(empty(trim($_REQUEST['passwordSignUp']))){
         $password_err = "Please enter a password.";
+        header("Location: ../view/AdminLogin.php");
     } elseif(strlen(trim($_REQUEST['passwordSignUp'])) < 6){
         $password_err = "Password must have atleast 6 characters.";
+        header("Location: ../view/AdminLogin.php");
     } else{
         $password = htmlentities(trim($_REQUEST['password']));
     }
@@ -39,15 +43,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate confirm password
     if(empty(trim($_REQUEST["confirmPasswordSignUp"]))){
         $confirm_password_err = 'Please confirm password.';
+        header("Location: ../view/AdminLogin.php");
     } else{
         $confirm_password = htmlentities(($_REQUEST['confirmPasswordSignUp']));
         if($password != $confirm_password){
             $confirm_password_err = 'Password did not match.';
+            header("Location: ../view/AdminLogin.php");
         }
     }
 
     if(empty(trim($_REQUEST['adminkey']))){
         $admin_key_err = "Please enter the admin key.";
+        header("Location: ../view/AdminLogin.php");
     }
      else{
         $admin_key = htmlentities(trim($_REQUEST['adminkey']));
@@ -69,33 +76,35 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
         else{
           $admin_key_err = "Wrong admin key!";
+          header("Location: ../view/AdminLogin.php");
+
         }
     }
-}
 }
 // admin register finishes.
 
 
 // Define variables and initialize with empty values
 $email = $password = "";
-$email_err= $password_err = "";
+$email_login_err= $password_login_err = "";
 
 // Processing form data when form is submitted
-if(isset($_REQUEST["email"])){
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if(isset($_REQUEST["login-submit"])){
 
     // Check if email is empty
     if(empty(trim($_REQUEST["email"]))){
-        $email_err = 'Please enter email.';
+        $email_login_err = 'Please enter email.';
+        header("Location: ../view/AdminLogin.php");
     }
 
     // Check if password is empty
     if(empty(trim($_REQUEST['password']))){
-        $password_err = 'Please enter your password.';
+        $password_login_err = 'Please enter your password.';
+        header("Location: ../view/AdminLogin.php");
     }
 
     // Validate credentials
-    if(empty($email_err) && empty($password_err)){
+    if(empty($email_login_err) && empty($password_login_err)){
         // Prepare a select statement
         $admin = new Admin();
         $admin->Email_Address = htmlentities(trim($_REQUEST['email']));
@@ -109,17 +118,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
              header("Location: ../view/admin2.php");
            }
            else{
-             $password_err = "The password is not valid.";
+             $password_login_err = "The password is not valid.";
+             header("Location: ../view/AdminLogin.php");
            }
          }
          else{
-           $email_err = "The email is not valid";
+           $email_login_err = "The email is not valid";
+           header("Location: ../view/AdminLogin.php");
          }
 
 }
 
 }
-}
+
 
 if(isset($_REQUEST['logOut'])){
 // Initialize the session
