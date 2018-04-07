@@ -6,4 +6,6 @@
   require_once "../model/Customer.php";
   require_once "../model/Employee_Admin.php";
   require_once "../model/Flight.php";
+  require_once "../model/AdminKey.php";
+  require_once "../model/Admin.php";
 ?>

@@ -1,6 +1,14 @@
-<?php session_start(); ?>
+<?php
+session_start();
+// If session variable is not set it will redirect to login page
+if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
+  header("location: ../view/AdminLogin.php");
+  exit;
+}
+?>
 <!DOCTYPE html>
 <html>
+<?php require_once "../controller/adminLogin.php" ?>
 <?php require_once "../controller/airportList.php" ?>
 <?php require_once "../controller/adminController.php"?>
 <?php require_once "../controller/getFlightList.php"?>
@@ -39,7 +47,7 @@
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
               <li><a role="menuitem" tabindex="-1" href="admin2.php"><strong>Admin Home</Strong> </a></li>
-              <li><a role="menuitem" tabindex="-1" href="UserLogin.php"><strong>Log out</Strong> </a></li>
+              <li name="logOut"><a role="menuitem" name="logOut" tabindex="-1" href="../controller/adminLogin.php"><strong>Log out</Strong> </a></li>
             </ul>
             </div>
           </li>

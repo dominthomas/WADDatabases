@@ -155,6 +155,26 @@ class Database_Access{
     if(!empty($result) && $result->Password == $customer->Password){
       return $result;
     }
+
+    function addAdmin($admin){
+    $statement = $this->pdo->prepare("INSERT INTO Employee_Admins (Email_Address, Password), VALUES(?,?)");
+    $statement->execute([$admin->Email_Address, $admin->Password]);
+    }
+
+    function getAdminByEmail($admin){
+      $statement = $this->pdo->prepare("SELECT * FROM Employee_Admins WHERE Email_Address = ?");
+      $statement->execute([$admin->Email_Address]);
+      $results = $statement->fetchAll(PDO::FETCH_CLASS, "Admin");
+      return $results;
+
+    }
+
+   function getAdminKey(){
+     $statement = $this->pdo->prepare("SELECT * FROM Admin_Key");
+     $statement->execute();
+    $results = $statement->fetchAll(PDO::FETCH_CLASS,"AdminKey");
+    return $results;
+   }
   }
 }
 ?>
