@@ -57,6 +57,7 @@
   <div class="panel panel-default">
   <div class="tab-pane">
       <h3>Your Basket</h3>
+      <button class="btn btn-primary" value="Checkout" name="checkoutButton">Checkout</button>
       <table class="table table-bordered">
         <thead>
         <th>Flight Number</th>
@@ -102,15 +103,6 @@
   </form>
   </div>
   </div>
-
-  <?php if(count($addedFlights) !=0):
-
-    foreach($addedFlights as $flight):
-      echo $flight;
-    endforeach;
-  endif;
-
-     ?>
 
 </body>
 </html>

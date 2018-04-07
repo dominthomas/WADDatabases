@@ -1,4 +1,4 @@
-<?phpsession_start();?>
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,12 +59,12 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <ul class="nav nav-pills nav-justified" role="tablist">
-        <li><a href="UserLogin.php">User Login</a></li>
-        <li class="active"><a href="#">Admin Login</a></li>
+        <li class="active"><a data-toggle="pill" href="#adminLogin">Admin Login</a></li>
       </ul>
       </div>
       <div class="panel-body">
 
+    <div id="adminLogin" class="pill fade in active">
 <div class="bootstrap-iso">
  <div class="container-fluid">
   <div class="row">
@@ -79,7 +79,6 @@
       <div>
         <input class="form-control" id="pass" type="password" name="password"placeholder="Password" type="text"/>
         <input type="checkbox" onclick="showPassword()">Show Password
-
       </div>
       <div>
       <div class="form-group"> <!-- Submit button -->
@@ -92,7 +91,7 @@
   </div>
  </div>
 </div>
-
+</div>
   </div>
   </div>
 </div>
