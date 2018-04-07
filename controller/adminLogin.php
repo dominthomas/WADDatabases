@@ -8,7 +8,7 @@ $email_err = $password_err = $confirm_password_err = $admin_key_err ="";
 
 
 // Processing form data when form is submitted
-if(isset($_SERVER["emailSignUp"])){
+if(isset($_REQUEST["emailSignUp"])){
 
     // Validate email
     if(empty(trim($_REQUEST["emailSignUp"]))){
