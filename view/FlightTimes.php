@@ -62,7 +62,6 @@
         <ul class="nav nav-pills nav-justified" role="tablist">
         <li><a href="index.php">Booking</a></li>
         <li class="active"><a href="FlightTimes.php">Flight Times</a></li>
-        <li><a href="#">My Trips</a></li>
       </ul>
       </div>
 <div class="bootstrap-iso">
