@@ -158,7 +158,7 @@ class Database_Access{
 
 
     function addAdmin($admin){
-    $statement = $this->pdo->prepare("INSERT INTO Employee_Admins (Email_Address, Password), VALUES(?,?)");
+    $statement = $this->pdo->prepare("INSERT INTO Employee_Admins (Email_Address, Password) VALUES(?,?)");
     $statement->execute([$admin->Email_Address, $admin->Password]);
     }
 
@@ -173,7 +173,7 @@ class Database_Access{
    function getAdminKey(){
      $statement = $this->pdo->prepare("SELECT * FROM Admin_Key");
      $statement->execute();
-    $results = $statement->fetchAll(PDO::FETCH_CLASS,"AdminKey");
+    $results = $statement->fetchAll(PDO::FETCH_CLASS,"Admin_Key")[0];
     return $results;
    }
   }

@@ -13,16 +13,18 @@ if(isset($_REQUEST["emailSignUp"])){
     // Validate email
     if(empty(trim($_REQUEST["emailSignUp"]))){
         $email_err = "Please enter a email.";
-        header("Location: ../view/AdminLogin.php");
+        echo "no email";
+      //  header("Location: ../view/AdminLogin.php");
     } else{
 
         $admin = new Admin();
         $admin->Email_Address= htmlentities(trim($_REQUEST["emailSignUp"]));
         $admin_results= Database_Access::getInstance()->getAdminByEmail($admin);
 
-        if($admin_results->rowCount() == 1){
+        if(count($admin_results) < 0){
           $email_err = "Email already exists";
-          header("Location: ../view/AdminLogin.php");
+          echo "existing email";
+        //  header("Location: ../view/AdminLogin.php");
         }
         else{
           $emailSignUp = htmlentities(trim($_REQUEST["emailSignUp"]));
@@ -32,29 +34,34 @@ if(isset($_REQUEST["emailSignUp"])){
     // Validate password
     if(empty(trim($_REQUEST['passwordSignUp']))){
         $password_err = "Please enter a password.";
-        header("Location: ../view/AdminLogin.php");
+        echo "no password";
+      //  header("Location: ../view/AdminLogin.php");
     } elseif(strlen(trim($_REQUEST['passwordSignUp'])) < 6){
         $password_err = "Password must have atleast 6 characters.";
-        header("Location: ../view/AdminLogin.php");
+        echo "short password";
+      //  header("Location: ../view/AdminLogin.php");
     } else{
-        $password = htmlentities(trim($_REQUEST['password']));
+        $password = htmlentities(trim($_REQUEST['passwordSignUp']));
     }
 
     // Validate confirm password
     if(empty(trim($_REQUEST["confirmPasswordSignUp"]))){
         $confirm_password_err = 'Please confirm password.';
-        header("Location: ../view/AdminLogin.php");
+        echo "no pass confirm";
+      //  header("Location: ../view/AdminLogin.php");
     } else{
         $confirm_password = htmlentities(($_REQUEST['confirmPasswordSignUp']));
         if($password != $confirm_password){
             $confirm_password_err = 'Password did not match.';
-            header("Location: ../view/AdminLogin.php");
+            echo "pass no match";
+        //    header("Location: ../view/AdminLogin.php");
         }
     }
 
     if(empty(trim($_REQUEST['adminkey']))){
         $admin_key_err = "Please enter the admin key.";
-        header("Location: ../view/AdminLogin.php");
+        echo "admin key not entered";
+      //  header("Location: ../view/AdminLogin.php");
     }
      else{
         $admin_key = htmlentities(trim($_REQUEST['adminkey']));
@@ -71,12 +78,13 @@ if(isset($_REQUEST["emailSignUp"])){
             $admin->Email_Address = $emailSignUp;
             $admin->Password = $hashedPassword;
             Database_Access::getInstance()->addAdmin($admin);
-            header("Location: ../view/AdminLogin.php");
+          //  header("Location: ../view/AdminLogin.php");
               }
         }
         else{
           $admin_key_err = "Wrong admin key!";
-          header("Location: ../view/AdminLogin.php");
+          echo "what's wrong with you";
+        //  header("Location: ../view/AdminLogin.php");
 
         }
     }
