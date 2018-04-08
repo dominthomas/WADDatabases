@@ -74,7 +74,9 @@
   					<div class="panel-body">
   						<div class="row">
   							<div class="col-lg-12">
+                  <?php if(isset($_SESSION['email'])):?>
                   <p>Hello <?=$_SESSION['email']?></p>
+                  <?php endif; ?>
   								<form id="login-form" action="../controller/adminLogin.php" method="post" role="form" style="display: block;">
   									<div class="form-group">
   										<input type="text" name="email" id="username" tabindex="1" class="form-control" placeholder="Email" value="">
