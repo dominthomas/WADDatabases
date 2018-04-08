@@ -102,13 +102,15 @@ if(isset($_REQUEST["login-submit"])){
     // Check if email is empty
     if(empty(trim($_REQUEST["email"]))){
         $email_login_err = 'Please enter email.';
-        header("Location: ../view/AdminLogin.php");
+        echo "email empty";
+    //    header("Location: ../view/AdminLogin.php");
     }
 
     // Check if password is empty
     if(empty(trim($_REQUEST['password']))){
         $password_login_err = 'Please enter your password.';
-        header("Location: ../view/AdminLogin.php");
+        echo "no pass";
+      //  header("Location: ../view/AdminLogin.php");
     }
 
     // Validate credentials
@@ -119,20 +121,22 @@ if(isset($_REQUEST["login-submit"])){
         $admin->Password = htmlentities(trim($_REQUEST['password']));
         $admin_results = Database_Access::getInstance()->getAdminByEmail($admin);
 
-         if($admin_results->rowCount == 1){
-           if(password_verify($admin->Password, $admin_results->Password)){
+         if(count($admin_results) == 1){
+           if(password_verify($admin->Password, $admin_results[0]->Password)){
              session_start();
              $_SESSION['email'] = $admin->Email_Address;
-             header("Location: ../view/admin2.php");
+          //   header("Location: ../view/admin2.php");
            }
            else{
              $password_login_err = "The password is not valid.";
-             header("Location: ../view/AdminLogin.php");
+             echo "wrong password";
+          //   header("Location: ../view/AdminLogin.php");
            }
          }
          else{
            $email_login_err = "The email is not valid";
-           header("Location: ../view/AdminLogin.php");
+           echo "wrong email";
+        //   header("Location: ../view/AdminLogin.php");
          }
 
 }
@@ -151,7 +155,7 @@ $_SESSION = array();
 session_destroy();
 
 // Redirect to login page
-header("Location: ../view/AdminLogin.php");
+//header("Location: ../view/AdminLogin.php");
 exit;
 }
 

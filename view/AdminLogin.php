@@ -74,14 +74,15 @@
   					<div class="panel-body">
   						<div class="row">
   							<div class="col-lg-12">
+                  <p>Hello <?=$_SESSION['email']?></p>
   								<form id="login-form" action="../controller/adminLogin.php" method="post" role="form" style="display: block;">
   									<div class="form-group">
   										<input type="text" name="email" id="username" tabindex="1" class="form-control" placeholder="Email" value="">
-                      <label><?php $email_login_err ?></label>
+                      <label><?= $email_login_err ?></label>
   									</div>
   									<div class="form-group">
   										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
-                      <label><?php $password_login_err ?> your mum</label>
+                      <label><?= $password_login_err ?></label>
   									</div>
   									<div class="form-group">
   										<div class="row">
@@ -96,19 +97,19 @@
   								<form id="register-form" action="../controller/adminLogin.php" method="post" role="form" style="display: none;">
   									<div class="form-group">
   										<input type="text" name="emailSignUp" id="username" tabindex="1" class="form-control" placeholder="Enter Email" value="">
-                      <label><?php $email_err ?> </label>
+                      <label><?= $email_err ?> </label>
   									</div>
   									<div class="form-group">
   										<input type="password" name="passwordSignUp" id="password" tabindex="2" class="form-control" placeholder="Password">
-                      <label><?php $password_err ?> </label>
+                      <label><?= $password_err ?> </label>
   									</div>
   									<div class="form-group">
   										<input type="password" name="confirmPasswordSignUp" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
-                      <label><?php $confirm_password_err ?> </label>
+                      <label><?= $confirm_password_err ?> </label>
   									</div>
                     <div class="form-group">
                       <input type="password" name="adminkey" id="password" tabindex="2" class="form-control" placeholder="Enter Admin Key">
-                      <label><?php $admin_key_err ?> </label>
+                      <label><?= $admin_key_err ?> </label>
                     </div>
   									<div class="form-group">
   										<div class="row">
