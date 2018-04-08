@@ -1,5 +1,5 @@
 
-<?php foreach ($flightList as $flight){
+<?php /*foreach ($flightList as $flight){
   echo '<div class="form-group"> <tr>';
   foreach ($airportList as $airport){
     if($airport->IATA_Code == $flight->Departure_IATA_Code){
@@ -22,4 +22,5 @@
   echo "</tr></div>";
 
 
-}
+}*/
+?>

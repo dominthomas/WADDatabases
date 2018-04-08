@@ -10,14 +10,13 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-    $('.delete').on('click', function (event) {
+    $('body').on('click' , '.delete', function(event) {
       event.preventDefault();
       var deleteFlight = $(this).val();
       $(".form-message").load("../controller/basketController.php", {
         deleteFlight: deleteFlight
       });
-      $("form").load(location.href+" form>*","");
-
+      $(".panel").load("../controller/test.php");
     });
 });
 

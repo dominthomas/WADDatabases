@@ -16,28 +16,7 @@
   <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
   <link rel="icon" href="TabIcon.jpg">
   <link rel="stylesheet" href="css/adminLoginCSS.css" type ="text/css">
-  <script type="text/javascript">
-    $(document).ready(function() {
-
-      $('#login-form-link').click(function(e) {
-  		$("#login-form").delay(100).fadeIn(100);
-   		$("#register-form").fadeOut(100);
-  		$('#register-form-link').removeClass('active');
-  		$(this).addClass('active');
-  		e.preventDefault();
-  	});
-  	$('#register-form-link').click(function(e) {
-  		$("#register-form").delay(100).fadeIn(100);
-   		$("#login-form").fadeOut(100);
-  		$('#login-form-link').removeClass('active');
-  		$(this).addClass('active');
-  		e.preventDefault();
-  	});
-
-  }
-
-    );
-  </script>
+  <script src="js/AdminLoginAjax.js"></script>
 </head>
 <body>
   <nav class="navbar navbar-inverse">
@@ -68,7 +47,8 @@
              data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="basketview.php">Basket</a></li>
+              <button class="btn btn-primary navbar-btn" type="button">Basket<span class="glyphicon glyphicon-shopping-cart"></span>
+</button>
               <li role="presentation" class="divider"></li>
               <li role="presentation"><a role="menuitem" tabindex="-1" href="UserLogin.php"><strong>Sign in</Strong> </a></li>
             </ul>

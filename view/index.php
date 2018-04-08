@@ -18,51 +18,13 @@
 
 </head>
 <body>
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse"
-        data-target="#myNavBar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        </button>
-       <a class="navbar-brand" href="index.php">Fly Guys</a>
-       </div>
-       <div class="collapse navbar-collapse" id="myNavBar">
-         <ul class="nav navbar-nav navbar-right ">
-           <li class="active"><a href="index.php">Book</a></li>
-           <li><a href="FlightStatus.php">Status</a></li>
-
-
-           <li>
-             <div class="btn-toolbar">
-               <a href="admin2.php">
-                   <button class="btn btn-primary navbar-btn" type="button">Admin
-                     <span class="glyphicon glyphicon-user"></span>
-                   </button>
-                 </a>
-            <button class="btn btn-primary navbar-btn dropdown-toggle" type="button"
-             data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>
-            <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="basketview.php">Basket</a></li>
-              <li role="presentation" class="divider"></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="UserLogin.php"><strong>Admin</Strong> </a></li>
-            </ul>
-            </div>
-          </li>
-         </ul>
-       </div>
-     </div>
-  </nav>
+<?php require 'nav.php'; ?>
 <div class="static">
     <div class="panel panel-default">
       <div class="panel-heading">
         <ul class="nav nav-pills nav-justified" role="tablist">
         <li class="active"><a href="#">Booking</a></li>
         <li><a href="FlightTimes.php">Flight Times</a></li>
-        <li><a href="#">My Trips</a></li>
       </ul>
       </div>
 
@@ -91,6 +53,7 @@
   </div>
 
   <div class="panel panel-default">
+  <div class="panel-body">
   <div class="tab-pane">
       <h3>Flights</h3>
       <table class="table table-bordered">
@@ -132,8 +95,8 @@
   </div>
   </div>
 
-
+</div>
   </div>
-  <div id="snackbar"><div class="form-message">ff</div></div>
+  <div id="snackbar"><div class="form-message"></div></div>
 </body>
 </html>

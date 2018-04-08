@@ -1,25 +1,34 @@
 <?php
-
 require_once "../model/Flight.php";
 require_once "../controller/flightList.php";
 
-$flightList = Database_Access::getInstance()->getAllFlights();
-$basketStatus = "";
+
   session_start();
   if (!isset($_SESSION["addedFlights"])){
+
     $_SESSION["addedFlights"] = [];
   }
+
   $flights= "";
-  if (isset($_REQUEST["addFlight"])){
-    $flights = $_REQUEST["addFlight"];
+  if (isset($_POST["addFlight"])){
+
+    $flights = $_POST["addFlight"];
     $_SESSION["addedFlights"][] = $flights;
-  header("Location: ../view/index.php");
+    echo "<span>".$_POST["addFlight"]." added to your basket.</span>";
+    echo "<script> myFunction(); </script>";
+
   }
-  if (isset($_REQUEST["deleteFlight"])){
-    if (($key = array_search($_REQUEST["deleteFlight"], $_SESSION["addedFlights"])) !== false) {
+
+  if (isset($_POST["deleteFlight"])){
+
+    if (($key = array_search($_POST["deleteFlight"], $_SESSION["addedFlights"])) !== false) {
     unset($_SESSION["addedFlights"][$key]);
+    echo "<span>".$_POST["deleteFlight"]." removed from your basket.</span>";
+    echo "<script> myFunction(); </script>";
   }
-    header("Location:../view/basketview.php");
+
   }
+
   $addedFlights = $_SESSION["addedFlights"];
+
 ?>

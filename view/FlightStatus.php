@@ -45,7 +45,8 @@
              data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="basketview.php">Basket</a></li>
+              <button class="btn btn-primary navbar-btn" type="button">Basket<span class="glyphicon glyphicon-shopping-cart"></span>
+</button>
               <li role="presentation" class="divider"></li>
               <li role="presentation"><a role="menuitem" tabindex="-1" href="UserLogin.php"><strong>Sign in</Strong> </a></li>
             </ul>

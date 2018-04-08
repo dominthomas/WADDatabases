@@ -46,8 +46,9 @@ if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
              data-toggle="dropdown">Admin <span class="glyphicon glyphicon-user"></span>
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
-              <li><a role="menuitem" tabindex="-1" href="admin2.php"><strong>Admin Home</Strong> </a></li>
-              <li name="logOut"><a role="menuitem" name="logOut" tabindex="-1" href="../controller/adminLogin.php"><strong>Log out</Strong> </a></li>
+              <li><a role="menuitem" tabindex="-1" href="admin2.php"><strong>A<?=$_SESSION['email']?></Strong> </a></li>
+                  <p>Hello <?=$_SESSION['email']?></p>
+              <li><a role="menuitem" tabindex="-1" href="../controller/adminLogOut.php"><strong>Log out</Strong> </a></li>
             </ul>
             </div>
           </li>
