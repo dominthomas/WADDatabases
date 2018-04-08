@@ -16,6 +16,28 @@
   <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
   <link rel="icon" href="TabIcon.jpg">
   <link rel="stylesheet" href="css/adminLoginCSS.css" type ="text/css">
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      $('#login-form-link').click(function(e) {
+  		$("#login-form").delay(100).fadeIn(100);
+   		$("#register-form").fadeOut(100);
+  		$('#register-form-link').removeClass('active');
+  		$(this).addClass('active');
+  		e.preventDefault();
+  	});
+  	$('#register-form-link').click(function(e) {
+  		$("#register-form").delay(100).fadeIn(100);
+   		$("#login-form").fadeOut(100);
+  		$('#login-form-link').removeClass('active');
+  		$(this).addClass('active');
+  		e.preventDefault();
+  	});
+
+  }
+
+    );
+  </script>
 </head>
 <body>
   <nav class="navbar navbar-inverse">
@@ -130,25 +152,3 @@
   	</div>
 </body>
 </html>
-
-  <script>
-  $(function() {
-
-    $('#login-form-link').click(function(e) {
-		$("#login-form").delay(100).fadeIn(100);
- 		$("#register-form").fadeOut(100);
-		$('#register-form-link').removeClass('active');
-		$(this).addClass('active');
-		e.preventDefault();
-	});
-	$('#register-form-link').click(function(e) {
-		$("#register-form").delay(100).fadeIn(100);
- 		$("#login-form").fadeOut(100);
-		$('#login-form-link').removeClass('active');
-		$(this).addClass('active');
-		e.preventDefault();
-	});
-
-});
-
-  </script>
