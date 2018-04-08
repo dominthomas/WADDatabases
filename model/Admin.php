@@ -3,7 +3,7 @@ class Admin{
   private $Admin_ID;
   private $Email_Address;
   private $Password;
-  
+
   function __construct(){
   }
 
