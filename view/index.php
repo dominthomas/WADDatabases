@@ -15,7 +15,6 @@
   <link rel="stylesheet" href="bootstrap-datepicker-master/dist/css/bootstrap-datepicker3.css">
   <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
   <script src="js/ajax.js"></script>
-  <script src="js/FlightSearchAJAX.js"></script>
 
 </head>
 <body>
