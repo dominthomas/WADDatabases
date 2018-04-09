@@ -109,7 +109,7 @@
                       <label><?= $confirm_password_err ?> </label>
   									</div>
                     <div class="form-group">
-                      <input type="password" name="adminkey" id="password" tabindex="2" class="form-control" placeholder="Enter Admin Key">
+                      <input type="password" name="adminkey" id="adminkey" tabindex="2" class="form-control" placeholder="Enter Admin Key">
                       <label><?= $admin_key_err ?> </label>
                     </div>
   									<div class="form-group">

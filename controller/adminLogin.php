@@ -89,6 +89,13 @@ if(isset($_REQUEST["emailSignUp"])){
         }
     }
 }
+if(isset($_REQUEST['adminkey'])){
+  $admin_key = htmlentities(trim($_REQUEST['adminkey']));
+  $admin_key_results= Database_Access::getInstance()->getAdminKey($admin_key);
+  if (strcasecmp($admin_key_results->Admin_Key,$admin_key) != 0 ){
+    echo "Access Denied";
+  }
+}
 // admin register finishes.
 
 
