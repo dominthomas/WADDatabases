@@ -48,7 +48,5 @@ session_start();
     }
     echo "Flight has been booked";
   }
-  else{
-    echo "Please answer all fields or email confirmation is incorrect";
-  }
+
 ?>
