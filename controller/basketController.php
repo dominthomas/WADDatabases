@@ -30,7 +30,7 @@ session_start();
   }
 
   $addedFlights = $_SESSION["addedFlights"];
-  if(isset($_REQUEST['fname']) && isset($_REQUEST['lname']) && isset($_REQUEST['email']) &&  isset($_REQUEST['emailConfirm']) && $_REQUEST['email'] == $_REQUEST['emailConfirm']){
+  if(!empty($_REQUEST['fname']) && !empty($_REQUEST['lname']) && !empty($_REQUEST['email']) &&  !empty($_REQUEST['emailConfirm']) && $_REQUEST['email'] == $_REQUEST['emailConfirm']){
     foreach($_SESSION["addedFlights"] as $flightNum){
       {
         foreach($flightList as $flight){
