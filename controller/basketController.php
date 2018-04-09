@@ -1,9 +1,9 @@
 <?php
 require_once "../model/Flight.php";
+require_once "../model/Booking.php";
 require_once "../controller/flightList.php";
 
-
-  session_start();
+session_start();
   if (!isset($_SESSION["addedFlights"])){
 
     $_SESSION["addedFlights"] = [];
@@ -30,5 +30,25 @@ require_once "../controller/flightList.php";
   }
 
   $addedFlights = $_SESSION["addedFlights"];
-
+  if(isset($_REQUEST['fname']) && isset($_REQUEST['lname']) && isset($_REQUEST['email']) &&  isset($_REQUEST['emailConfirm']) && $_REQUEST['email'] == $_REQUEST['emailConfirm']){
+    foreach($_SESSION["addedFlights"] as $flightNum){
+      {
+        foreach($flightList as $flight){
+          if($flight->Flight_Number == $flightNum){
+            $booking = new Booking();
+            $booking->Booking_Date = date("Y-m-d");
+            $booking->Flight_Number = $flight->Flight_Number;
+            $booking->Customer_First_Name =  $_REQUEST['fname'];
+            $booking->Customer_Last_Name = $_REQUEST['lname'];
+            $booking->Cost = $flight->Cost;
+            Database_Access::getInstance()->addBooking($booking);
+          }
+        }
+      }
+    }
+    echo "Flight has been booked";
+  }
+  else{
+    echo "Please answer all fields or email confirmation is incorrect";
+  }
 ?>

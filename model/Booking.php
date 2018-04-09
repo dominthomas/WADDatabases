@@ -3,10 +3,9 @@
     private $Booking_ID;
     private $Booking_Date;
     private $Flight_Number;
-    private $Seats_Booked;
-    private $Customer_ID;
+    private $Customer_First_Name;
+    private $Customer_Last_Name;
     private $Cost;
-    private $Total_Cost;
 
 
     function __construct(){

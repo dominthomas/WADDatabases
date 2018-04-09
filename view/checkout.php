@@ -22,25 +22,25 @@
 
   <div class="panel panel-default">
     <div class="panel-body">
-      <form action="#">
+      <form action="../controller/basketController.php">
         <div class="form-group">
           <label for="fname">First Name:</label>
-          <input type="text" class="form-control" id="fname">
+          <input type="text" name="fname" class="form-control" id="fname">
         </div>
 
         <div class="form-group">
           <label for="fname">Last Name:</label>
-          <input type="text" class="form-control" id="lname">
+          <input type="text" name="lname" class="form-control" id="lname">
         </div>
 
         <div class="form-group">
           <label for="email">Email address:</label>
-          <input type="email" class="form-control" id="email">
+          <input type="email" name="email" class="form-control" id="email">
         </div>
 
         <div class="form-group">
           <label for="email">Confirm Email address:</label>
-          <input type="email" class="form-control" id="email">
+          <input type="email" name="emailConfirm" class="form-control" id="email">
         </div>
 
         <button type="submit" class="btn btn-default">Submit</button>
