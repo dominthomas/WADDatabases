@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
 <?php require_once "../controller/flightList.php" ?>
-
+<?php require_once "../controller/airportList.php";?>
 <html lang="en">
 <head>
   <title>Booking</title>
@@ -43,7 +43,7 @@
           <label class="control-labe" for="search"><br/>Search available flights:</label>
           <input class="form-control" type="text" name="search" placeholder=" if entering date, follow format YYYY-MM-DD"/>
           <div class="results">
-            <div class="result">data</div>
+            <div class="result"></div>
           </div>
       </div>
       <div class="form-group">

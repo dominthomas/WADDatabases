@@ -9,7 +9,7 @@ function handleAutoComplete(){
 
   var search = $("div#ajaxFlightSearch input").val().trim();
   if (search != ""){
-    $.get("getFlight_service.php?flight="+search,autoCompleteCallback);
+    $.get("getAirportService.php?airport="+search,autoCompleteCallback);
   }
   else {
     $("div#ajaxFlightSearch div.results").hide();

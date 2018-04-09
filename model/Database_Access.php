@@ -187,5 +187,12 @@ class Database_Access{
        $booking->Cost
      ]);
    }
+   function getAirportsByLetter($airport){
+     $statement = $this->pdo->prepare('SELECT DISTINCT Airport_Location FROM Airport WHERE Airport_Location like ?');
+     $statement->execute(["$airport%"]);
+     $arports = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
+     return $airports;
+   }
+
   }
 ?>
