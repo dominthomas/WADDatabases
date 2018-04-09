@@ -1,5 +1,5 @@
 <?php
-  class Flight{
+  class Flight implements JsonSerializable{
     private $Flight_Number;
     private $Aircraft_ID;
     private $Departure_IATA_Code;
@@ -18,6 +18,10 @@
 
     function __set($name,$value){
       $this->$name = $value;
+    }
+
+    public function jsonSerialize(){
+      return get_object_vars($this);
     }
   }
 ?>

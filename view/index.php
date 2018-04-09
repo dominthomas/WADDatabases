@@ -39,12 +39,15 @@
             <option value="4">Day of the Week</option>
           </select>
         </div>
-        <div class="form-group">
+        <div class="form-group" id="ajaxFlightSearch">
           <label class="control-labe" for="search"><br/>Search available flights:</label>
           <input class="form-control" type="text" name="search" placeholder=" if entering date, follow format YYYY-MM-DD"/>
+          <div class="results">
+            <div class="result">data</div>
+          </div>
       </div>
       <div class="form-group">
-          <button class="btn btn-primary" type="submit" value="Search">Search</button>
+          <button class="btn btn-primary" id="ajaxSearchButton"type="submit" value="Search">Search</button>
       </div>
     </form>
   </div>
