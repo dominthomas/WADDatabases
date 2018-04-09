@@ -178,12 +178,13 @@ class Database_Access{
    }
 
    function addBooking($booking){
-     $statement = $this->pdo->prepare("INSERT INTO Bookings (Booking_Date,Flight_Number,Customer_First_Name,Customer_Last_Name,Cost) VALUES (?,?,?,?,?)");
+     $statement = $this->pdo->prepare("INSERT INTO Bookings (Booking_Date,Flight_Number,Customer_First_Name,Customer_Last_Name,Email,Cost) VALUES (?,?,?,?,?,?)");
      $statement->execute([
        $booking->Booking_Date,
        $booking->Flight_Number,
        $booking->Customer_First_Name,
        $booking->Customer_Last_Name,
+       $booking->Email,
        $booking->Cost
      ]);
    }

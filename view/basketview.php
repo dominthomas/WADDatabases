@@ -22,7 +22,7 @@
   <div class="panel panel-default">
     <div class="panel-body">
       <?php require '../controller/basketStuff.php'; ?>
-      <a href="checkout.php"><button class="btn btn-primary" value="Checkout" name="checkoutButton">Checkout</button></a>
+      
     </div>
 
   </div>

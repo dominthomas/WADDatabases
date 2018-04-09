@@ -5,6 +5,7 @@
     private $Flight_Number;
     private $Customer_First_Name;
     private $Customer_Last_Name;
+    private $Email;
     private $Cost;
 
 

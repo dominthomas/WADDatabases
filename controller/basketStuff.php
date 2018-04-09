@@ -48,4 +48,7 @@ require_once "basketController.php";
 <?php endif ?>
   </table>
 </form>
+<?php if(count($addedFlights) !==0): ?>
+<a href="checkout.php"><button class="btn btn-primary" value="Checkout" name="checkoutButton">Checkout</button></a>
+<?php endif ?>
 </div>
